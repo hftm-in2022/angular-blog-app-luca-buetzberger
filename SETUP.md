@@ -205,3 +205,9 @@ The Azure plugin for Visual Studio Code makes managing the Azure Cloud easier.
 4. Set the root directory to your projects root. Usually, it's `/`.
 
 5. Set the build output directory as `dist/<your-app-name>/browser`.
+
+# 4. CI/CD Pipeline and Update Management
+
+The following tutorial does an excelent job at demonstrating how it is done.
+
+[Github Actions for Angular Projects: Pipeline for Testing, Building and ng update](https://youtu.be/1vqJ1_AAcUg)
