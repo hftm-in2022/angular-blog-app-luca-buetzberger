@@ -1,3 +1,5 @@
+[Back to readme](../readme.md)
+
 # 1. Setup the Angular project.
 
 ### 1.1 Create a new angular project.
