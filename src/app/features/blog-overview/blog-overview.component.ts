@@ -12,6 +12,7 @@ import { BlogPost } from '../../models/blogpost.model';
 })
 export class BlogOverviewComponent implements OnInit {
   blogs: BlogPost[] = [];
+  error = '';
   loading = true;
 
   constructor(private blogService: BlogService) {}
@@ -25,6 +26,10 @@ export class BlogOverviewComponent implements OnInit {
     this.blogService.getBlogs().subscribe({
       next: (blogs) => {
         this.blogs = blogs;
+        this.loading = false;
+      },
+      error: () => {
+        this.error = 'Failed to load blogs. Please try again later.';
         this.loading = false;
       },
     });
