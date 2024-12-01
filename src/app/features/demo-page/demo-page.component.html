@@ -1,0 +1,86 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ title }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- 2. (click) event binding -->
+      <mat-card class="demo-section">
+        <h3>Click Event Demo</h3>
+        <button mat-raised-button color="primary" (click)="incrementCount()">
+          Click me!
+        </button>
+        <p>Count: {{ count }}</p>
+      </mat-card>
+
+      <!-- 3. @if and @switch -->
+      <mat-card class="demo-section">
+        <h3>if and switch Demo</h3>
+        @if (count > 5) {
+          <p>Count is greater than 5!</p>
+        } @else {
+          <p>Keep clicking!</p>
+        }
+
+        @switch (selectedOption) {
+          @case (1) {
+            <p>Option One selected</p>
+          }
+          @case (2) {
+            <p>Option Two selected</p>
+          }
+          @default {
+            <p>Other option selected</p>
+          }
+        }
+
+        <mat-form-field>
+          <mat-label>Select Option</mat-label>
+          <mat-select [(ngModel)]="selectedOption">
+            <mat-option [value]="1">Option One</mat-option>
+            <mat-option [value]="2">Option Two</mat-option>
+            <mat-option [value]="3">Option Three</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+
+      <!-- 4. @for -->
+      <mat-card class="demo-section">
+        <h3>for Demo</h3>
+        @for (item of items; track item) {
+          <p>{{ item }}</p>
+        }
+      </mat-card>
+
+      <!-- 5. NGClass -->
+      <mat-card class="demo-section">
+        <h3>NGClass Demo</h3>
+        <p [ngClass]="{ 'red-text': isRed }">This text changes color</p>
+        <button mat-button (click)="toggleColor()">Toggle Color</button>
+      </mat-card>
+
+      <!-- 6. NGStyle -->
+      <mat-card class="demo-section">
+        <h3>NGStyle Demo</h3>
+        <p [ngStyle]="{ 'font-size': 14 + count + 'px' }">
+          This text grows with clicks on "Click me!
+        </p>
+      </mat-card>
+
+      <!-- 7. NGModel -->
+      <mat-card class="demo-section">
+        <h3>NGModel Demo</h3>
+        <mat-form-field>
+          <mat-label>Enter text</mat-label>
+          <input
+            matInput
+            [(ngModel)]="inputText"
+            placeholder="Type something"
+          />
+        </mat-form-field>
+        <p>You typed: {{ inputText }}</p>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
