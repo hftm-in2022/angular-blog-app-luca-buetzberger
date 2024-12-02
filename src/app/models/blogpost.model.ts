@@ -1,3 +1,4 @@
+// src\app\models\blogpost.model.ts
 export interface BlogPost {
   documentID: string;
   title: string;

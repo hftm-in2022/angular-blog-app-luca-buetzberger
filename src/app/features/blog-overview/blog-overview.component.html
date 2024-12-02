@@ -1,3 +1,4 @@
+<!-- src\app\features\blog-overview\blog-overview.component.html -->
 <div class="blog-container">
   @if (error) {
     <div class="error">{{ error }}</div>
@@ -10,7 +11,7 @@
   } @else {
     <div class="blog-grid">
       @for (blog of blogs; track blog.documentID) {
-        <div class="blog-card">
+        <a class="blog-card" [routerLink]="['/blog', blog.documentID]">
           @if (blog.imageURL) {
             <img [src]="blog.imageURL" alt="Blog image" class="blog-image" />
           }
@@ -24,7 +25,7 @@
               </div>
             }
           </div>
-        </div>
+        </a>
       }
     </div>
   }

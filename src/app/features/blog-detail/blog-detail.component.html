@@ -1,0 +1,8 @@
+<!-- src\app\features\blog-detail\blog-detail.component.html -->
+<div *ngIf="blog">
+  <h2>{{ blog.title }}</h2>
+  <img *ngIf="blog.imageURL" [src]="blog.imageURL" alt="Blog image" />
+  <p>{{ blog.content }}</p>
+  <div>Category: {{ blog.category }}</div>
+  <div>Published Date: {{ blog.publishedDate | date: "medium" }}</div>
+</div>

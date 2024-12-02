@@ -1,12 +1,14 @@
+// src\app\features\blog-overview\blog-overview.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogService } from '../../services/blog.service';
 import { BlogPost } from '../../models/blogpost.model';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-blog-overview',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],
 })
@@ -15,7 +17,10 @@ export class BlogOverviewComponent implements OnInit {
   error = '';
   loading = true;
 
-  constructor(private blogService: BlogService) {}
+  constructor(
+    private blogService: BlogService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.loadBlogs();
@@ -34,4 +39,8 @@ export class BlogOverviewComponent implements OnInit {
       },
     });
   }
+
+  // onBlogClick(blogId: string) {
+  //   this.router.navigate(['/blog', blogId]);
+  // }
 }
