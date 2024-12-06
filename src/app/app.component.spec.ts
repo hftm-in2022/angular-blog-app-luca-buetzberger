@@ -26,6 +26,8 @@ describe('AppComponent', () => {
       publishedDate: new Date(),
       imageURL: 'test-image.jpg',
       audioURL: 'test-audio.mp3',
+      // likes: '1',
+      // geopoint: '[0°N, 0°E]',
       userUID: 'test-user-123',
     },
   ];
