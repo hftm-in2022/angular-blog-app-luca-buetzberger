@@ -40,7 +40,12 @@ export class BlogOverviewComponent implements OnInit {
     });
   }
 
-  // onBlogClick(blogId: string) {
-  //   this.router.navigate(['/blog', blogId]);
-  // }
+  onBlogClick(blogId: string) {
+    this.router.navigate(['/blog', blogId]);
+  }
+  trackByDocumentID(index: number, blog: BlogPost): string {
+    return blog.documentID;
+  }
+
+  
 }
