@@ -5,7 +5,6 @@ import { BlogService } from './services/blog.service';
 import { BlogPost } from './models/blogpost.model';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
