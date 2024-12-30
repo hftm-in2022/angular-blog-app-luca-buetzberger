@@ -34,6 +34,38 @@
     }
   }
 
+  .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between avatar and display name */
+
+    .profile-avatar {
+      width: 50px; /* Adjust size as needed */
+      height: 50px;
+      border-radius: 50%; /* Makes the avatar round */
+      object-fit: cover; /* Ensures the image fits nicely */
+      cursor: pointer; /* Indicates interactivity */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05); /* Subtle zoom effect on hover */
+      }
+    }
+
+    .profile-name {
+      font-size: 1.2rem;
+      // font-weight: bold;
+      color: #333;
+      cursor: pointer; /* Indicates interactivity */
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #007bff; /* Change color on hover */
+      }
+    }
+  }
+
   .meta-card {
     background: white;
     border-radius: 12px;
@@ -60,4 +92,11 @@
       }
     }
   }
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 1.5rem 0;
 }

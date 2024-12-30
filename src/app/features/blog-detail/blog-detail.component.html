@@ -10,8 +10,44 @@
 
   <div class="meta-card">
     <div class="meta-item">Category: {{ blog.category }}</div>
+    <div class="meta-item">Likes: {{ blog.likes }}</div>
     <div class="meta-item">
       Published Date: {{ blog.publishedDate | date: "medium" }}
     </div>
   </div>
+
+  <hr class="divider" />
+
+  <!-- Profile Section -->
+  <!-- <div class="profile-section" *ngIf="profile" (click)="onProfileClick()">
+    <img *ngIf="profile.avatarURL" [src]="profile.avatarURL" alt="User avatar" class="profile-avatar" />
+    <span class="profile-name">{{ profile.displayName }}</span>
+  </div> -->
+
+  <div class="profile-section" *ngIf="profile">
+    <!-- Avatar -->
+    <img
+      *ngIf="profile.avatarURL"
+      [src]="profile.avatarURL"
+      alt="User avatar"
+      class="profile-avatar"
+      (click)="onProfileClick(profile.documentID)"
+      (keydown.enter)="onProfileClick(profile.documentID)"
+      (keydown.space)="onProfileClick(profile.documentID)"
+      tabindex="0"
+    />
+
+    <!-- Display Name -->
+    <span
+      class="profile-name"
+      (click)="onProfileClick(profile.documentID)"
+      (keydown.enter)="onProfileClick(profile.documentID)"
+      (keydown.space)="onProfileClick(profile.documentID)"
+      tabindex="0"
+    >
+      {{ profile.displayName }}
+    </span>
+  </div>
+
+  <hr class="divider" />
 </div>

@@ -8,6 +8,6 @@ export interface BlogPost {
   imageURL: string;
   audioURL: string;
   userUID: string;
-  // likes: string;
+  likes: number;
   // geopoint: string;
 }

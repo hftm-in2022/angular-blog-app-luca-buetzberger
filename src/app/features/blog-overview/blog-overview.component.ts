@@ -1,7 +1,7 @@
 // src\app\features\blog-overview\blog-overview.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BlogService } from '../../services/blog.service';
+import { BlogService } from '../../services/blogpost.service';
 import { BlogPost } from '../../models/blogpost.model';
 import { Router, RouterModule } from '@angular/router';
 
@@ -46,6 +46,4 @@ export class BlogOverviewComponent implements OnInit {
   trackByDocumentID(index: number, blog: BlogPost): string {
     return blog.documentID;
   }
-
-  
 }
