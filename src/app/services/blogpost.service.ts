@@ -1,3 +1,4 @@
+// src\app\services\blog.service.ts
 import { Injectable } from '@angular/core';
 import {
   Firestore,
@@ -6,6 +7,8 @@ import {
   query,
   orderBy,
   DocumentData,
+  docData,
+  doc,
 } from '@angular/fire/firestore';
 import { Observable, map } from 'rxjs';
 import { BlogPost } from '../models/blogpost.model';
@@ -36,8 +39,28 @@ export class BlogService {
             imageURL: blog['imageURL'] || '',
             audioURL: blog['audioURL'] || '',
             userUID: blog['userUID'] || '',
+            likes: blog['likes'] || '0',
           } as BlogPost;
         });
+      }),
+    );
+  }
+
+  getBlogById(blogId: string): Observable<BlogPost> {
+    const blogDoc = doc(this.firestore, 'blogposts', blogId);
+    return docData(blogDoc, { idField: 'documentID' }).pipe(
+      map((blog: DocumentData) => {
+        return {
+          documentID: blog['documentID'] || '',
+          title: blog['title'] || '',
+          content: blog['content'] || '',
+          category: blog['category'] || '',
+          publishedDate: blog['publishedDate']?.toDate() || null,
+          imageURL: blog['imageURL'] || '',
+          audioURL: blog['audioURL'] || '',
+          userUID: blog['userUID'] || '',
+          likes: blog['likes'] || '0',
+        } as BlogPost;
       }),
     );
   }

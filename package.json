@@ -59,5 +59,11 @@
   "lint-staged": {
     "*.{ts,js,html}": "eslint --cache --fix",
     "*.{ts,js,html,css,scss,less,md}": "prettier --write"
-  }
+  },
+
+    
+  "assets": [
+    "src/favicon.ico",
+    "src/assets"
+  ]
 }
