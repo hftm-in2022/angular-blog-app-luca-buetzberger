@@ -12,4 +12,32 @@
     <li><a routerLink="/about">About</a></li>
     <li><a routerLink="/contact">Contact</a></li>
   </ul>
+
+  <!-- Right-side buttons -->
+  <div class="auth-buttons">
+    <!-- Show login button if not logged in -->
+    @if (!user) {
+      <button (click)="loginWithGoogle()">Login</button>
+    }
+
+    <!-- Show profile button if logged in -->
+    @if (user) {
+      <div
+        class="profile"
+        (click)="logout()"
+        (keydown.enter)="logout()"
+        (keydown.space)="logout()"
+        role="button"
+        aria-label="Logout and view profile"
+        tabindex="0"
+      >
+        <img
+          [src]="user.photoURL || 'default-avatar.png'"
+          alt="User avatar"
+          class="profile-avatar"
+        />
+        <span class="profile-name">{{ user.displayName || "User" }}</span>
+      </div>
+    }
+  </div>
 </nav>
