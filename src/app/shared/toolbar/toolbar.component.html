@@ -17,18 +17,18 @@
   <div class="auth-buttons">
     <!-- Show login button if not logged in -->
     @if (!user) {
-      <button (click)="loginWithGoogle()">Login</button>
+      <button (click)="openLoginModal()">Login</button>
     }
 
-    <!-- Show profile button if logged in -->
+    <!-- Show profile avatar and logout button if logged in -->
     @if (user) {
       <div
-        class="profile"
-        (click)="logout()"
-        (keydown.enter)="logout()"
-        (keydown.space)="logout()"
+        class="profile-avatar-container"
+        (click)="goToProfile()"
+        (keydown.enter)="goToProfile()"
+        (keydown.space)="goToProfile()"
         role="button"
-        aria-label="Logout and view profile"
+        aria-label="View Profile"
         tabindex="0"
       >
         <img
@@ -36,8 +36,14 @@
           alt="User avatar"
           class="profile-avatar"
         />
-        <span class="profile-name">{{ user.displayName || "User" }}</span>
       </div>
+      <button (click)="logout()">Logout</button>
     }
   </div>
 </nav>
+
+<!-- Login Modal -->
+<app-login-modal
+  *ngIf="showLoginModal"
+  (close)="closeLoginModal()"
+></app-login-modal>

@@ -1,0 +1,22 @@
+<!-- src\app\features\login-modal\login-modal.component.html -->
+
+<div
+  class="modal-overlay"
+  (click)="closeModal()"
+  (keydown.enter)="closeModal()"
+  (keydown.space)="closeModal()"
+  tabindex="0"
+></div>
+<div class="modal">
+  <h2>Login</h2>
+  <button
+    (click)="loginWithGoogle()"
+    (keydown.enter)="loginWithGoogle()"
+    (keydown.space)="loginWithGoogle()"
+    tabindex="0"
+  >
+    Login with Google
+  </button>
+  <!-- <button (click)="loginAnonymously()">Login Anonymously</button> -->
+  <p>More login methods coming soon...</p>
+</div>
