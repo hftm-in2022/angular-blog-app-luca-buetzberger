@@ -28,7 +28,7 @@
         tabindex="0"
       >
         <img
-          [src]="(user$ | async)?.photoURL || 'default-avatar.png'"
+          [src]="(profile$ | async)?.avatarURL || 'default-avatar.png'"
           alt="User avatar"
           class="profile-avatar"
         />
