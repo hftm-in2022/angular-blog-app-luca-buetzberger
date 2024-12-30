@@ -1,5 +1,5 @@
 // src\app\models\profile.model.ts
-export interface BlogPost {
+export interface Profile {
   documentID: string;
   avatarURL: string;
   createdDate: Date;
