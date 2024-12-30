@@ -18,9 +18,9 @@ export class LoginModalComponent {
     this.authService.loginWithGoogle().then(() => this.closeModal());
   }
 
-  // loginAnonymously() {
-  //   this.authService.loginAnonymously().then(() => this.closeModal());
-  // }
+  loginAnonymously() {
+    this.authService.loginAnonymously().then(() => this.closeModal());
+  }
 
   closeModal() {
     this.close.emit();

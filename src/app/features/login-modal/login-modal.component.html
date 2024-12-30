@@ -10,6 +10,15 @@
 <div class="modal">
   <h2>Login</h2>
   <button
+    (click)="loginAnonymously()"
+    (keydown.enter)="loginAnonymously()"
+    (keydown.space)="loginAnonymously()"
+    tabindex="0"
+  >
+    Login Anonymously
+  </button>
+
+  <button
     (click)="loginWithGoogle()"
     (keydown.enter)="loginWithGoogle()"
     (keydown.space)="loginWithGoogle()"

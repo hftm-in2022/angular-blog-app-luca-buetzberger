@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signOut,
   User,
+  signInAnonymously,
 } from '@angular/fire/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -22,6 +23,16 @@ export class AuthService {
     this.auth.onAuthStateChanged((user) => {
       this.userSubject.next(user);
     });
+  }
+
+  // Anonymous Login
+  async loginAnonymously(): Promise<void> {
+    try {
+      const result = await signInAnonymously(this.auth);
+      this.userSubject.next(result.user); // Update the user state after login
+    } catch (error) {
+      console.error('Anonymous login failed:', error);
+    }
   }
 
   // Google Login
