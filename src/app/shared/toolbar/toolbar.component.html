@@ -1,9 +1,9 @@
 <!-- src\app\shared\toolbar\toolbar.component.html -->
+
 <nav>
   <div class="logo">
     <a routerLink="/">
       <h1>Lucas Blog</h1>
-      <!-- <img src="./../../../assets/logo-AppertureScience.png" alt="Logo"/> -->
     </a>
   </div>
   <ul>
@@ -15,13 +15,9 @@
 
   <!-- Right-side buttons -->
   <div class="auth-buttons">
-    <!-- Show login button if not logged in -->
-    @if (!user) {
-      <button (click)="openLoginModal()">Login</button>
-    }
-
-    <!-- Show profile avatar and logout button if logged in -->
-    @if (user) {
+    <!-- Use @if to check if the user is logged in -->
+    @if (user$ | async) {
+      <!-- Show profile avatar and logout button if logged in -->
       <div
         class="profile-avatar-container"
         (click)="goToProfile()"
@@ -32,12 +28,15 @@
         tabindex="0"
       >
         <img
-          [src]="user.photoURL || 'default-avatar.png'"
+          [src]="(user$ | async)?.photoURL || 'default-avatar.png'"
           alt="User avatar"
           class="profile-avatar"
         />
       </div>
       <button (click)="logout()">Logout</button>
+    } @else {
+      <!-- Show login button if not logged in -->
+      <button (click)="openLoginModal()">Login</button>
     }
   </div>
 </nav>

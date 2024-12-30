@@ -1,10 +1,11 @@
 // src\app\shared\toolbar\toolbar.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { LoginModalComponent } from '../../features/login-modal/login-modal.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,20 +14,15 @@ import { LoginModalComponent } from '../../features/login-modal/login-modal.comp
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })
-export class ToolbarComponent implements OnInit {
-  user: User | null = null; // Local variable to store the user object
-  showLoginModal = false; // Controls the visibility of the login modal
+export class ToolbarComponent {
+  user$: Observable<User | null>; // Directly use the observable from AuthService
+  showLoginModal = false;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-  ) {}
-
-  ngOnInit() {
-    // Subscribe to the user observable and update the local user variable
-    this.authService.user$.subscribe((user) => {
-      this.user = user;
-    });
+  ) {
+    this.user$ = this.authService.user$; // Subscribe to the user observable
   }
 
   openLoginModal() {
