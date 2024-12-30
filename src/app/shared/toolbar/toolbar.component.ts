@@ -1,3 +1,4 @@
+// src\app\shared\toolbar\toolbar.component.ts
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
