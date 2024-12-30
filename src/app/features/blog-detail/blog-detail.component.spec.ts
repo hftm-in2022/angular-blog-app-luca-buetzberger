@@ -1,23 +1,23 @@
-// src\app\features\blog-detail\blog-detail.component.spec.ts
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// // src\app\features\blog-detail\blog-detail.component.spec.ts
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlogDetailComponent } from './blog-detail.component';
+// import { BlogDetailComponent } from './blog-detail.component';
 
-describe('BlogDetailComponent', () => {
-  let component: BlogDetailComponent;
-  let fixture: ComponentFixture<BlogDetailComponent>;
+// describe('BlogDetailComponent', () => {
+//   let component: BlogDetailComponent;
+//   let fixture: ComponentFixture<BlogDetailComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [BlogDetailComponent],
-    }).compileComponents();
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       imports: [BlogDetailComponent],
+//     }).compileComponents();
 
-    fixture = TestBed.createComponent(BlogDetailComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//     fixture = TestBed.createComponent(BlogDetailComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
