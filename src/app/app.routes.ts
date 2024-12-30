@@ -8,11 +8,6 @@ import { AboutPageComponent } from './features/about-page/about-page.component';
 export const routes: Routes = [
   { path: '', component: BlogOverviewComponent },
   { path: 'demo', component: DemoPageComponent },
-  {
-    path: 'login',
-    loadComponent: () =>
-      import('./features/login/login.component').then((m) => m.LoginComponent),
-  },
   { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'about', component: AboutPageComponent },
 ];
