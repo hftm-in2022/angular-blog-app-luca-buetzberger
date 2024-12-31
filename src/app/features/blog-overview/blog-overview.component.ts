@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BlogService } from '../../services/blogpost.service';
 import { BlogPost } from '../../models/blogpost.model';
 import { Router, RouterModule } from '@angular/router';
+import { BlogStateService } from '../../services/blog-state.service';
 
 @Component({
   selector: 'app-blog-overview',
@@ -19,7 +20,8 @@ export class BlogOverviewComponent implements OnInit {
 
   constructor(
     private blogService: BlogService,
-    private router: Router,
+    private blogStateService: BlogStateService, // Inject the state service
+    private router: Router, // Inject the router
   ) {}
 
   ngOnInit() {
@@ -28,9 +30,12 @@ export class BlogOverviewComponent implements OnInit {
 
   loadBlogs() {
     this.loading = true;
+
+    // Fetch blogs from the BlogService and cache them in BlogStateService
     this.blogService.getBlogs().subscribe({
       next: (blogs) => {
         this.blogs = blogs;
+        this.blogStateService.setBlogs(blogs); // Cache the blogs
         this.loading = false;
       },
       error: () => {
@@ -40,9 +45,12 @@ export class BlogOverviewComponent implements OnInit {
     });
   }
 
+  // Navigate to the blog detail page
   onBlogClick(blogId: string) {
-    this.router.navigate(['/blog', blogId]);
+    this.router.navigate(['/blog', blogId]); // Navigate to the blog detail page
   }
+
+  // Track blogs by their documentID for performance optimization
   trackByDocumentID(index: number, blog: BlogPost): string {
     return blog.documentID;
   }
