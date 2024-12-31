@@ -4,10 +4,15 @@ import { BlogOverviewComponent } from './features/blog-overview/blog-overview.co
 import { DemoPageComponent } from './features/demo-page/demo-page.component';
 import { BlogDetailComponent } from './features/blog-detail/blog-detail.component';
 import { AboutPageComponent } from './features/about-page/about-page.component';
+import { BlogDetailResolver } from './features/blog-detail/blog-detail-resolver';
 
 export const routes: Routes = [
   { path: '', component: BlogOverviewComponent },
   { path: 'demo', component: DemoPageComponent },
-  { path: 'blog/:id', component: BlogDetailComponent },
+  {
+    path: 'blog/:id',
+    component: BlogDetailComponent,
+    resolve: { blog: BlogDetailResolver }, // Resolver for BlogDetailPage
+  },
   { path: 'about', component: AboutPageComponent },
 ];
