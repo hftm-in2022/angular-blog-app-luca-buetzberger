@@ -22,15 +22,15 @@ export class ProfileService {
     private firestore: Firestore,
     private authService: AuthService,
   ) {
-    // Subscribe to the user observable from AuthService
+    // Listen to authentication state changes
     this.authService.user$
       .pipe(
         switchMap((user) => {
           if (user) {
-            // Fetch the profile if the user is logged in
+            // If user is logged in, fetch the profile
             return this.getProfileById(user.uid);
           } else {
-            // Return null if the user is logged out
+            // If user is logged out, return null
             return of(null);
           }
         }),
@@ -40,8 +40,8 @@ export class ProfileService {
           this.profileSubject.next(profile); // Update the profile observable
         },
         error: (error) => {
-          console.error('Failed to fetch user profile:', error);
-          this.profileSubject.next(null);
+          console.error('Error fetching profile:', error);
+          this.profileSubject.next(null); // Clear profile on error
         },
       });
   }
@@ -50,16 +50,7 @@ export class ProfileService {
   getProfileById(userUID: string): Observable<Profile> {
     const profileDoc = doc(this.firestore, 'profiles', userUID);
     return docData(profileDoc, { idField: 'documentID' }).pipe(
-      map((profile: DocumentData) => {
-        return {
-          documentID: profile['documentID'] || '',
-          avatarURL: profile['avatarURL'] || '',
-          createdDate: profile['createdDate']?.toDate() || null,
-          description: profile['description'] || '',
-          displayName: profile['displayName'] || '',
-          email: profile['email'] || '',
-        } as Profile;
-      }),
+      map((profile: DocumentData) => this.applyFallbackValues(profile)),
     );
   }
 
@@ -75,5 +66,17 @@ export class ProfileService {
       email: email,
     };
     await setDoc(profileDoc, defaultProfile);
+  }
+
+  // Apply fallback values to a profile
+  private applyFallbackValues(profile: DocumentData): Profile {
+    return {
+      documentID: profile['documentID'] || '', // Fallback to an empty string
+      avatarURL: profile['avatarURL'] || 'default-avatar.png', // Fallback to a default avatar
+      createdDate: profile['createdDate']?.toDate() || new Date(0), // Fallback to Unix epoch
+      description: profile['description'] || 'No description provided', // Fallback to a default description
+      displayName: profile['displayName']?.trim() || 'Anonymous', // Fallback to 'Anonymous'
+      email: profile['email'] || 'No email provided', // Fallback to a default email
+    };
   }
 }

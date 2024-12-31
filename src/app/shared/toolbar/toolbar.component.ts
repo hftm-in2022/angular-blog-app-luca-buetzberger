@@ -42,7 +42,15 @@ export class ToolbarComponent {
     this.authService.logout();
   }
 
+  // goToProfile() {
+  //   this.router.navigate(['/profile']);
+  // }
+
   goToProfile() {
-    this.router.navigate(['/profile']);
+    this.authService.user$.subscribe((user) => {
+      if (user) {
+        this.router.navigate(['/profile', user.uid]); // Navigate to the profile page with the user's ID
+      }
+    });
   }
 }
