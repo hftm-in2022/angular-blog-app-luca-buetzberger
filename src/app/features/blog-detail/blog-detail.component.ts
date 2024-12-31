@@ -25,20 +25,16 @@ export class BlogDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const blogId = this.route.snapshot.paramMap.get('id');
-    if (blogId) {
-      this.blogService.getBlogById(blogId).subscribe((blog) => {
-        this.blog = blog;
+    // Get the resolved blog post from the route
+    this.blog = this.route.snapshot.data['blog'];
 
-        // Fetch the profile using the userUID
-        if (blog?.userUID) {
-          this.profileService
-            .getProfileById(blog.userUID)
-            .subscribe((profile) => {
-              this.profile = profile;
-            });
-        }
-      });
+    // Fetch the profile of the blog author
+    if (this.blog?.userUID) {
+      this.profileService
+        .getProfileById(this.blog.userUID)
+        .subscribe((profile) => {
+          this.profile = profile;
+        });
     }
   }
 
