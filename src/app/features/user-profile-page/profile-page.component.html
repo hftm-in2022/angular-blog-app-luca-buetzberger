@@ -1,0 +1,12 @@
+<!-- src\app\features\user-profile-page\profile-page.component.html -->
+
+<div *ngIf="profile$ | async as profile; else noProfile">
+  <h1>{{ profile.displayName }}</h1>
+  <img [src]="profile.avatarURL" alt="Avatar" />
+  <p>Email: {{ profile.email }}</p>
+  <p>Description: {{ profile.description }}</p>
+  <p>Joined: {{ profile.createdDate | date }}</p>
+</div>
+<ng-template #noProfile>
+  <p>Profile not found.</p>
+</ng-template>

@@ -1,8 +1,9 @@
+<!-- src\app\shared\toolbar\toolbar.component.html -->
+
 <nav>
   <div class="logo">
     <a routerLink="/">
-      <h1>Lucas Blog</h1>
-      <!-- <img src="./../../../assets/logo-AppertureScience.png" alt="Logo"/> -->
+      <p>Lucas Blog</p>
     </a>
   </div>
   <ul>
@@ -11,4 +12,37 @@
     <li><a routerLink="/about">About</a></li>
     <li><a routerLink="/contact">Contact</a></li>
   </ul>
+
+  <!-- Right-side buttons -->
+  <div class="auth-buttons">
+    <!-- Use @if to check if the user is logged in -->
+    @if (user$ | async) {
+      <!-- Show profile avatar and logout button if logged in -->
+      <div
+        class="profile-avatar-container"
+        (click)="goToProfile()"
+        (keydown.enter)="goToProfile()"
+        (keydown.space)="goToProfile()"
+        role="button"
+        aria-label="View Profile"
+        tabindex="0"
+      >
+        <img
+          [src]="(profile$ | async)?.avatarURL || 'default-avatar.png'"
+          alt="User avatar"
+          class="profile-avatar"
+        />
+      </div>
+      <button (click)="logout()">Logout</button>
+    } @else {
+      <!-- Show login button if not logged in -->
+      <button (click)="openLoginModal()">Login</button>
+    }
+  </div>
 </nav>
+
+<!-- Login Modal -->
+<app-login-modal
+  *ngIf="showLoginModal"
+  (close)="closeLoginModal()"
+></app-login-modal>
