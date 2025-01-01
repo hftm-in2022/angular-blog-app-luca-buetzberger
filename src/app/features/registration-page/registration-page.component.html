@@ -1,0 +1,81 @@
+<!-- src\app\features\registration-page\registration-page.component.html -->
+
+<div
+  class="modal-overlay"
+  (click)="closeModal()"
+  (keydown.enter)="closeModal()"
+  tabindex="0"
+></div>
+
+<div class="modal">
+  <h2>Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        placeholder="Ex. pat@example.com"
+      />
+      @if (
+        emailFormControl?.hasError("email") &&
+        !emailFormControl?.hasError("required")
+      ) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+      @if (emailFormControl?.hasError("required")) {
+        <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      @if (passwordFormControl?.hasError("required")) {
+        <mat-error>Password is <strong>required</strong></mat-error>
+      }
+      @if (passwordFormControl?.hasError("invalidPassword")) {
+        <mat-error>
+          Password must be at least 8 characters long, include at least one
+          uppercase letter, one lowercase letter, one special character, and no
+          spaces.
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="confirmPassword"
+        placeholder="Confirm your password"
+      />
+      @if (registerForm.hasError("passwordMismatch")) {
+        <mat-error>Passwords do not match</mat-error>
+      }
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="registerForm.invalid"
+    >
+      Register
+    </button>
+  </form>
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+</div>
