@@ -5,10 +5,9 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.scss']
+  styleUrls: ['./about-page.component.scss'],
 })
 export class AboutPageComponent {
   onSubmit() {

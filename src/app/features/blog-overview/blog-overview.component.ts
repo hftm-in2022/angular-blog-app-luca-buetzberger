@@ -8,7 +8,6 @@ import { BlogStateService } from '../../services/blog-state.service';
 
 @Component({
   selector: 'app-blog-overview',
-  standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],
