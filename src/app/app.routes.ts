@@ -14,12 +14,12 @@ export const routes: Routes = [
   {
     path: 'blog/:id',
     component: BlogDetailComponent,
-    resolve: { blog: BlogDetailResolver }, // Resolver for BlogDetailPage
+    resolve: { blog: BlogDetailResolver },
   },
   { path: 'about', component: AboutPageComponent },
   {
     path: 'profile/:id',
     component: ProfilePageComponent,
-    resolve: { profile: ProfileResolver }, // Resolver for User Profile Page
+    resolve: { profile: ProfileResolver },
   },
 ];
