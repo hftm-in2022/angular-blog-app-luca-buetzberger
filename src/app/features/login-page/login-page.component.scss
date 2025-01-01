@@ -1,0 +1,84 @@
+// src\app\features\login-page\login-page.component.scss
+
+/* Fullscreen overlay to blur the background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+/* Modal container */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* Login buttons container */
+.login-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 1rem; /* Add spacing between buttons */
+  margin-bottom: 1rem; /* Add spacing below the buttons */
+}
+
+/* Divider between buttons and form */
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Actions (forgot password and toggle registration) */
+.actions {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.actions button {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  text-decoration: none;
+}
+
+/* Ensure the form fields and button are stacked vertically */
+form {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  gap: 1rem; /* Add spacing between form elements */
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  align-self: stretch; /* Make the button take the full width of the form */
+}
