@@ -11,7 +11,6 @@ import { Profile } from '../../models/profile.model';
 
 @Component({
   selector: 'app-toolbar',
-  standalone: true,
   imports: [RouterModule, CommonModule, LoginModalComponent],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
