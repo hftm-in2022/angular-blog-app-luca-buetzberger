@@ -1,6 +1,6 @@
 // src\app\shared\validators\shared-validators.spec.ts
 
-import { SharedValidators } from './shared-validators';
+import { SharedValidators } from './shared-validators.component';
 import { FormControl } from '@angular/forms';
 
 describe('SharedValidators', () => {
