@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FirebaseError } from '@angular/fire/app';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -34,6 +35,7 @@ export class LoginPageComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
   ) {
     this.authForm = this.fb.group({
       email: ['', [Validators.required]], // Removed Validators.email
@@ -72,6 +74,11 @@ export class LoginPageComponent {
         console.error('Login failed:', error);
         this.errorMessage = this.getErrorMessage(error);
       });
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/registration']); // Navigate to the registration page
+    this.closeModal();
   }
 
   closeModal() {

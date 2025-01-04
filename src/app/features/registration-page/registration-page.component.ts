@@ -26,7 +26,7 @@ import { FirebaseError } from '@angular/fire/app';
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss'],
 })
-export class RegisterModalComponent {
+export class RegistrationPageComponent {
   @Output() close = new EventEmitter<void>();
 
   registerForm: FormGroup;
