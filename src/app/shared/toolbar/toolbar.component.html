@@ -12,6 +12,17 @@
     <li><a routerLink="/about">About</a></li>
   </ul>
 
+  <!-- Add blog post button -->
+  <button
+    class="create-post-button"
+    [disabled]="(user$ | async) === null"
+    [routerLink]="['/createBlogPost']"
+    aria-label="Create Blog Post"
+    [title]="(user$ | async) === null ? 'Log in to create a blog post' : ''"
+  >
+    +
+  </button>
+
   <!-- Right-side buttons -->
   <div class="auth-buttons">
     <!-- Use @if to check if the user is logged in -->
@@ -27,7 +38,9 @@
         tabindex="0"
       >
         <img
-          [src]="(profile$ | async)?.avatarURL || 'default-avatar.png'"
+          [src]="
+            (profile$ | async)?.avatarURL || 'profile_avatar-placeholder.png'
+          "
           alt="User avatar"
           class="profile-avatar"
         />

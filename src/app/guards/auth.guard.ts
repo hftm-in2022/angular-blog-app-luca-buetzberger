@@ -19,5 +19,6 @@ export const authGuard: CanActivateFn = () => {
         return false;
       }
     }),
+    // map((user) => !!user)
   );
 };
