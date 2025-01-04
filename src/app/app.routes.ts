@@ -9,6 +9,8 @@ import { BlogDetailResolver } from './features/blog-detail/blog-detail-resolver'
 import { ProfilePageComponent } from './features/user-profile-page/profile-page.component';
 import { ProfileResolver } from './features/user-profile-page/profile-resolver';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';
+import { authGuard } from './guards/auth.guard';
+import { CreateBlogComponent } from './features/create-blog/create-blog.component';
 
 export const routes: Routes = [
   { path: '', component: BlogOverviewComponent },
@@ -25,4 +27,9 @@ export const routes: Routes = [
     resolve: { profile: ProfileResolver },
   },
   { path: 'registration', component: RegistrationPageComponent },
+  {
+    path: 'createBlogPost',
+    component: CreateBlogComponent,
+    canActivate: [authGuard],
+  }, // Protected route
 ];
