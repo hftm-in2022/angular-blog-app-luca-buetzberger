@@ -24,4 +24,9 @@ export class ProfilePageComponent implements OnInit {
       filter((profile): profile is Profile => profile !== null), // Type guard to exclude null
     );
   }
+
+  onImageError(event: Event): void {
+    const target = event.target as HTMLImageElement;
+    target.src = 'profile_avatar-placeholder.png'; // Fallback image
+  }
 }
