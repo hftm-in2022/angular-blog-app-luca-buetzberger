@@ -6,4 +6,5 @@ export interface Profile {
   description: string;
   displayName: string;
   email: string;
+  accountType: string;
 }

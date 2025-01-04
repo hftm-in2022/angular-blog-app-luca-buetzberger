@@ -5,14 +5,14 @@ import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../services/profile.service';
 import { User } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
-import { LoginModalComponent } from '../../features/login-modal/login-modal.component';
+import { LoginPageComponent } from '../../features/login-page/login-page.component';
 import { Observable } from 'rxjs';
 import { Profile } from '../../models/profile.model';
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [RouterModule, CommonModule, LoginModalComponent],
+  imports: [RouterModule, CommonModule, LoginPageComponent],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })

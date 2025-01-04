@@ -1,4 +1,5 @@
 // src\app\app.routes.ts
+
 import { Routes } from '@angular/router';
 import { BlogOverviewComponent } from './features/blog-overview/blog-overview.component';
 import { DemoPageComponent } from './features/demo-page/demo-page.component';
@@ -7,6 +8,7 @@ import { AboutPageComponent } from './features/about-page/about-page.component';
 import { BlogDetailResolver } from './features/blog-detail/blog-detail-resolver';
 import { ProfilePageComponent } from './features/user-profile-page/profile-page.component';
 import { ProfileResolver } from './features/user-profile-page/profile-resolver';
+import { RegistrationPageComponent } from './features/registration-page/registration-page.component';
 
 export const routes: Routes = [
   { path: '', component: BlogOverviewComponent },
@@ -14,12 +16,13 @@ export const routes: Routes = [
   {
     path: 'blog/:id',
     component: BlogDetailComponent,
-    resolve: { blog: BlogDetailResolver }, // Resolver for BlogDetailPage
+    resolve: { blog: BlogDetailResolver },
   },
   { path: 'about', component: AboutPageComponent },
   {
     path: 'profile/:id',
     component: ProfilePageComponent,
-    resolve: { profile: ProfileResolver }, // Resolver for User Profile Page
+    resolve: { profile: ProfileResolver },
   },
+  { path: 'registration', component: RegistrationPageComponent },
 ];

@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BlogDetailComponent implements OnInit {
   blog: BlogPost | undefined;
-  profile: Profile | undefined;
+  profile: Profile | null | undefined;
 
   constructor(
     private route: ActivatedRoute,
