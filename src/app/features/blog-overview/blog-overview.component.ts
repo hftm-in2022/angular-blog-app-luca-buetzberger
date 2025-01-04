@@ -1,7 +1,7 @@
 // src\app\features\blog-overview\blog-overview.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BlogService } from '../../services/blogpost.service';
+import { BlogPostService } from '../../services/blogpost.service';
 import { BlogPost } from '../../models/blogpost.model';
 import { Router, RouterModule } from '@angular/router';
 import { BlogStateService } from '../../services/blog-state.service';
@@ -19,7 +19,7 @@ export class BlogOverviewComponent implements OnInit {
   loading = true;
 
   constructor(
-    private blogService: BlogService,
+    private blogService: BlogPostService,
     private blogStateService: BlogStateService, // Inject the state service
     private router: Router, // Inject the router
   ) {}
