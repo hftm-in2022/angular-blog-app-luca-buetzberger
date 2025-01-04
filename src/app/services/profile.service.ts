@@ -64,10 +64,15 @@ export class ProfileService {
     );
   }
 
-  // Create a new profile for a user.
   async createProfile(user: User): Promise<Profile> {
     const userUID = user.uid;
     const profileDoc = doc(this.firestore, 'profiles', userUID);
+
+    // Get the providerId from the first provider in providerData
+    const accountType =
+      user.providerData.length > 0
+        ? user.providerData[0].providerId
+        : 'anonymous';
 
     const newProfile: Profile = {
       documentID: user.uid,
@@ -76,7 +81,7 @@ export class ProfileService {
       description: 'New user',
       displayName: 'Anonymous',
       email: user.email || '',
-      accountType: user.providerData[0].providerId || 'unknown', // Extract the first providerId from providerData
+      accountType, // Fallback to user.providerId for anonymous users
     };
 
     await setDoc(profileDoc, newProfile);
@@ -121,7 +126,7 @@ export class ProfileService {
   private applyFallbackValues(profile: DocumentData): Profile {
     return {
       documentID: profile['documentID'] || '', // Fallback to an empty string
-      avatarURL: profile['avatarURL'] || 'default-avatar.png', // Fallback to a default avatar
+      avatarURL: profile['avatarURL'] || '', // Fallback to a default avatar
       createdDate: profile['createdDate']?.toDate() || new Date(0), // Fallback to Unix epoch
       description: profile['description'] || 'No description provided', // Fallback to a default description
       displayName: profile['displayName']?.trim() || 'Anonymous', // Fallback to 'Anonymous'
