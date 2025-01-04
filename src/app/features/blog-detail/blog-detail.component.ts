@@ -1,6 +1,6 @@
 // src\app\features\blog-detail\blog-detail.component.ts
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../services/blogpost.service';
+import { BlogPostService } from '../../services/blogpost.service';
 import { ProfileService } from '../../services/profile.service';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPost } from '../../models/blogpost.model';
@@ -20,7 +20,7 @@ export class BlogDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService,
+    private blogService: BlogPostService,
     private profileService: ProfileService,
   ) {}
 

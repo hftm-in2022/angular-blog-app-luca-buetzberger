@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { BlogService } from '../../services/blogpost.service';
+import { BlogPostService } from '../../services/blogpost.service';
 import { BlogPost } from '../../models/blogpost.model';
 import { BlogStateService } from '../../services/blog-state.service';
 
@@ -12,7 +12,7 @@ import { BlogStateService } from '../../services/blog-state.service';
 })
 export class BlogDetailResolver implements Resolve<BlogPost | null> {
   constructor(
-    private blogService: BlogService,
+    private blogService: BlogPostService,
     private blogStateService: BlogStateService,
   ) {}
 

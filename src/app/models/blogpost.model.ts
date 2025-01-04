@@ -9,5 +9,5 @@ export interface BlogPost {
   audioURL: string;
   userUID: string;
   likes: number;
-  // geopoint: string;
+  geopoint: string;
 }
