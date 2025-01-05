@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData, query, orderBy, docData, doc, DocumentData, addDoc } from '@angular/fire/firestore';
 import { Observable, firstValueFrom, map } from 'rxjs';
-import { BlogPost } from '../../models/blogpost.model';
+import { BlogPost } from '../models/blogpost.model';
 import { getDownloadURL, ref, StorageReference, uploadBytes, Storage } from '@angular/fire/storage';
 import { AuthService } from './auth.service';
 

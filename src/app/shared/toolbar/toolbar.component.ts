@@ -7,7 +7,7 @@ import { User } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from '../../features/login-page/login-page.component';
 import { Observable } from 'rxjs';
-import { Profile } from '../../models/profile.model';
+import { Profile } from '../../core/models/profile.model';
 
 @Component({
   selector: 'app-toolbar',

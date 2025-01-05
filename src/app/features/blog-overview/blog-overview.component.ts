@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogPostService } from '../../core/services/blogpost.service';
-import { BlogPost } from '../../models/blogpost.model';
+import { BlogPost } from '../../core/models/blogpost.model';
 import { Router, RouterModule } from '@angular/router';
 import { BlogStateService } from '../../core/services/blog-state.service';
 

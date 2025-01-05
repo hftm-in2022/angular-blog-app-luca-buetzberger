@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, DocumentData, docData, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, switchMap, of, map, from } from 'rxjs';
-import { Profile } from '../../models/profile.model';
+import { Profile } from '../models/profile.model';
 import { AuthService } from './auth.service';
 import { User } from '@angular/fire/auth';
 
