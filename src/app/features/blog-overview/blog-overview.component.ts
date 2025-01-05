@@ -5,11 +5,12 @@ import { BlogPostService } from '../../core/services/blogpost.service';
 import { BlogPost } from '../../core/models/blogpost.model';
 import { Router, RouterModule } from '@angular/router';
 import { BlogStateService } from '../../core/services/blog-state.service';
+import { BlogCardComponent } from '../../shared/blog-card/blog-card.component'; // Import BlogCardComponent
 
 @Component({
   selector: 'app-blog-overview',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BlogCardComponent], // Add BlogCardComponent to imports
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],
 })

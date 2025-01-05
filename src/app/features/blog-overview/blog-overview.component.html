@@ -10,21 +10,7 @@
   } @else {
     <div class="blog-grid">
       @for (blog of blogs; track blog.documentID) {
-        <div class="blog-card" (click)="onBlogClick(blog.documentID)">
-          @if (blog.imageURL) {
-            <img [src]="blog.imageURL" alt="Blog image" class="blog-image" />
-          }
-          <div class="blog-content">
-            <h2>{{ blog.title }}</h2>
-            <div class="blog-category">{{ blog.category }}</div>
-            <p class="blog-text">{{ blog.content }}</p>
-            @if (blog.publishedDate) {
-              <div class="blog-date">
-                {{ blog.publishedDate | date: "medium" }}
-              </div>
-            }
-          </div>
-        </div>
+        <app-blog-card [blog]="blog" (blogClick)="onBlogClick($event)"></app-blog-card>
       }
     </div>
   }
