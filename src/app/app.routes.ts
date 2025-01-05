@@ -11,25 +11,15 @@ import { ProfileResolver } from './features/user-profile-page/profile-resolver';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';
 import { authGuard } from './guards/auth.guard';
 import { CreateBlogComponent } from './features/create-blog/create-blog.component';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 export const routes: Routes = [
   { path: '', component: BlogOverviewComponent },
   { path: 'demo', component: DemoPageComponent },
-  {
-    path: 'blog/:id',
-    component: BlogDetailComponent,
-    resolve: { blog: BlogDetailResolver },
-  },
+  { path: 'blog/:id', component: BlogDetailComponent, resolve: { blog: BlogDetailResolver } },
   { path: 'about', component: AboutPageComponent },
-  {
-    path: 'profile/:id',
-    component: ProfilePageComponent,
-    resolve: { profile: ProfileResolver },
-  },
+  { path: 'profile/:id', component: ProfilePageComponent, resolve: { profile: ProfileResolver } },
   { path: 'registration', component: RegistrationPageComponent },
-  {
-    path: 'createBlogPost',
-    component: CreateBlogComponent,
-    canActivate: [authGuard],
-  }, // Protected route
+  { path: 'createBlogPost', component: CreateBlogComponent, canActivate: [authGuard] }, // Protected route
+  { path: 'error', component: ErrorPageComponent }, // Error page route
 ];

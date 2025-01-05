@@ -1,6 +1,6 @@
 // src\app\app.config.ts
 
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, ErrorHandler, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -10,6 +10,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
+import { GlobalErrorHandler } from './services/global-error-handler';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,5 +23,6 @@ export const appConfig: ApplicationConfig = {
     // provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
     provideAnimationsAsync(),
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
   ],
 };
