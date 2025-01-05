@@ -60,6 +60,13 @@
     "*.{ts,js,html}": "eslint --cache --fix",
     "*.{ts,js,html,css,scss,less,md}": "prettier --write"
   },
+  "prettier": {
+    "printWidth": 180,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  }, 
   "assets": [
     "src/favicon.ico",
     "src/assets"
