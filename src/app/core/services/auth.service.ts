@@ -1,4 +1,4 @@
-// src\app\services\auth.service.ts
+// src\app\core\services\auth.service.ts
 
 import { Injectable } from '@angular/core';
 import {
@@ -54,11 +54,7 @@ export class AuthService {
   // Login with Email and Password
   async loginWithEmail(email: string, password: string): Promise<void> {
     try {
-      const result = await signInWithEmailAndPassword(
-        this.auth,
-        email,
-        password,
-      );
+      const result = await signInWithEmailAndPassword(this.auth, email, password);
       this.userSubject.next(result.user); // Update the user observable
     } catch (error) {
       console.error('Email login failed:', error);
@@ -69,11 +65,7 @@ export class AuthService {
   // Register with Email and Password
   async registerWithEmail(email: string, password: string): Promise<void> {
     try {
-      const result = await createUserWithEmailAndPassword(
-        this.auth,
-        email,
-        password,
-      );
+      const result = await createUserWithEmailAndPassword(this.auth, email, password);
       this.userSubject.next(result.user); // Update the user observable
     } catch (error) {
       console.error('Registration failed:', error);

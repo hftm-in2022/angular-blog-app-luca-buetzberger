@@ -1,8 +1,8 @@
 // src\app\shared\toolbar\toolbar.component.ts
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { ProfileService } from '../../services/profile.service';
+import { AuthService } from '../../core/services/auth.service';
+import { ProfileService } from '../../core/services/profile.service';
 import { User } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from '../../features/login-page/login-page.component';

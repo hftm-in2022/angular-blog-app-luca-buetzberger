@@ -1,14 +1,9 @@
 // src\app\features\create-blog\create-blog.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedValidators } from '../../shared/validators/shared-validators.component';
-import { BlogPostService } from '../../services/blogpost.service';
+import { BlogPostService } from '../../core/services/blogpost.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -58,9 +53,7 @@ export class CreateBlogComponent implements OnInit {
 
     try {
       // Upload the image to Firebase Storage and get its URL
-      const imageURL = await this.blogPostService.uploadImage(
-        this.selectedFile,
-      );
+      const imageURL = await this.blogPostService.uploadImage(this.selectedFile);
 
       // Create the blog post in Firestore
       await this.blogPostService.createBlogPost({

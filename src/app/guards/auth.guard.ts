@@ -1,7 +1,7 @@
 // src\app\guards\auth.guard.ts
 
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../core/services/auth.service';
 import { inject } from '@angular/core';
 import { User } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
