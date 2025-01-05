@@ -9,7 +9,7 @@ import { BlogDetailResolver } from './features/blog-detail/blog-detail-resolver'
 import { ProfilePageComponent } from './features/user-profile-page/profile-page.component';
 import { ProfileResolver } from './features/user-profile-page/profile-resolver';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';
-import { authGuard } from './guards/auth.guard';
+import { authGuard } from './core/guards/auth.guard';
 import { CreateBlogComponent } from './features/create-blog/create-blog.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
