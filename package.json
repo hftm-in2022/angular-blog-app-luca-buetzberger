@@ -64,8 +64,7 @@
     "printWidth": 180,
     "tabWidth": 2,
     "singleQuote": true,
-    "bracketSpacing": true,
-    "arrowParens": "avoid"
+    "bracketSpacing": true
   }, 
   "assets": [
     "src/favicon.ico",
