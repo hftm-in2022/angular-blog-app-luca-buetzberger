@@ -1,0 +1,17 @@
+// src\app\shared\error-page\error-page.component.scss
+
+.error-page {
+  text-align: center;
+  margin-top: 50px;
+}
+.error-page h1 {
+  font-size: 2rem;
+  color: #f44336;
+}
+.error-page p {
+  font-size: 1.2rem;
+}
+.error-page a {
+  color: #007bff;
+  text-decoration: none;
+}
