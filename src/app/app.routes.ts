@@ -14,7 +14,7 @@ import { CreateBlogComponent } from './features/create-blog/create-blog.componen
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 export const routes: Routes = [
-  { path: '', component: BlogOverviewComponent },
+  { path: 'home', component: BlogOverviewComponent },
   { path: 'demo', component: DemoPageComponent },
   { path: 'blog/:id', component: BlogDetailComponent, resolve: { blog: BlogDetailResolver } },
   { path: 'about', component: AboutPageComponent },
@@ -22,4 +22,5 @@ export const routes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
   { path: 'createBlogPost', component: CreateBlogComponent, canActivate: [authGuard] }, // Protected route
   { path: 'error', component: ErrorPageComponent }, // Error page route
+  { path: '**', redirectTo: '/home' },
 ];
