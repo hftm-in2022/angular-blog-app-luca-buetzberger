@@ -9,7 +9,7 @@ import { BlogDetailResolver } from './features/blog-detail/blog-detail-resolver'
 import { ProfilePageComponent } from './features/user-profile-page/profile-page.component';
 import { ProfileResolver } from './features/user-profile-page/profile-resolver';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';
-import { authGuard } from './core/guards/auth.guard';
+import { authenticationGuard } from './core/guards/authentication.guard';
 import { CreateBlogComponent } from './features/create-blog/create-blog.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'profile/:id', component: ProfilePageComponent, resolve: { profile: ProfileResolver } },
   { path: 'registration', component: RegistrationPageComponent },
-  { path: 'createBlogPost', component: CreateBlogComponent, canActivate: [authGuard] }, // Protected route
+  { path: 'createBlogPost', component: CreateBlogComponent, canActivate: [authenticationGuard] }, // Protected route
   { path: 'error', component: ErrorPageComponent }, // Error page route
   { path: '**', redirectTo: '/home' },
 ];
