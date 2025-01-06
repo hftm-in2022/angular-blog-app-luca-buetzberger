@@ -20,11 +20,31 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private userSubject = new BehaviorSubject<User | null>(null);
   user$: Observable<User | null> = this.userSubject.asObservable();
+  private authStateResolved = false; // Tracks if Firebase has resolved the auth state
 
   constructor(private auth: Auth) {
     // Listen to authentication state changes
     this.auth.onAuthStateChanged((user) => {
-      this.userSubject.next(user);
+      this.authStateResolved = true; // Auth state has been resolved
+      this.userSubject.next(user); // Emit the current user
+    });
+  }
+
+  // Wait for Firebase to resolve the authentication state
+  async waitForAuthState(): Promise<User | null> {
+    if (this.authStateResolved) {
+      // If already resolved, return the current user
+      return this.userSubject.value;
+    }
+
+    // Otherwise, wait for the first emission of the user state
+    return new Promise((resolve) => {
+      const subscription = this.user$.subscribe((user) => {
+        if (this.authStateResolved) {
+          resolve(user);
+          subscription.unsubscribe(); // Clean up subscription
+        }
+      });
     });
   }
 
