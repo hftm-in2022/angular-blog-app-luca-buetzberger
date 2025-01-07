@@ -19,7 +19,9 @@ export const authenticationGuard: CanActivateFn = async () => {
   const router = inject(Router); // Handle navigation
 
   try {
+    console.log('Authorization Guard: Waiting for user state...');
     const user = await authService.waitForAuthState(); // Resolve authentication state
+    console.log('Authorization Guard: User resolved:', user);
     if (user) {
       console.log('Authorization Guard: User is logged in. Access granted.');
       return true; // Grant access

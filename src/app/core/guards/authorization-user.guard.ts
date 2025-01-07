@@ -19,7 +19,9 @@ export const authorizationUserGuard: CanActivateFn = async () => {
   const router = inject(Router); // Handle navigation
 
   try {
+    console.log('Authorization User Guard: Waiting for profile state...');
     const profile = await profileService.waitForProfileState(); // Resolve the user's profile
+    console.log('Authorization User Guard: Profile resolved:', profile);
     if (profile?.roles.includes('user')) {
       console.log('Authorization User Guard: User has the required role. Access granted.');
       return true; // Allow access
