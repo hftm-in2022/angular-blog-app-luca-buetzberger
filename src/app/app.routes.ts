@@ -12,6 +12,7 @@ import { RegistrationPageComponent } from './features/registration-page/registra
 import { authenticationGuard } from './core/guards/authentication.guard';
 import { CreateBlogComponent } from './features/create-blog/create-blog.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { authorizationUserGuard } from './core/guards/authorization-user.guard';
 
 export const routes: Routes = [
   { path: 'home', component: BlogOverviewComponent },
@@ -20,7 +21,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'profile/:id', component: ProfilePageComponent, resolve: { profile: ProfileResolver } },
   { path: 'registration', component: RegistrationPageComponent },
-  { path: 'createBlogPost', component: CreateBlogComponent, canActivate: [authenticationGuard] }, // Protected route
+  { path: 'createBlogPost', component: CreateBlogComponent, canActivate: [authenticationGuard, authorizationUserGuard] }, // Protected route
   { path: 'error', component: ErrorPageComponent }, // Error page route
   { path: '**', redirectTo: '/home' },
 ];

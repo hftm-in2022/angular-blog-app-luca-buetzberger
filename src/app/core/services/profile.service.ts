@@ -13,6 +13,7 @@ import { User } from '@angular/fire/auth';
 export class ProfileService {
   private profileSubject = new BehaviorSubject<Profile | null>(null);
   profile$: Observable<Profile | null> = this.profileSubject.asObservable();
+  private profileStateResolved = false; // Tracks if the profile state has been resolved
 
   constructor(
     private firestore: Firestore,
@@ -38,13 +39,33 @@ export class ProfileService {
       )
       .subscribe({
         next: (profile) => {
+          this.profileStateResolved = true; // Mark the profile state as resolved
           this.profileSubject.next(profile); // Update the profile observable
         },
         error: (error) => {
           console.error('Error fetching or creating profile:', error);
+          this.profileStateResolved = true; // Mark the profile state as resolved
           this.profileSubject.next(null); // Clear profile on error
         },
       });
+  }
+
+  // Wait for the profile state to resolve.
+  async waitForProfileState(): Promise<Profile | null> {
+    if (this.profileStateResolved) {
+      // If already resolved, return the current profile
+      return this.profileSubject.value;
+    }
+
+    // Otherwise, wait for the first emission of the profile state
+    return new Promise((resolve) => {
+      const subscription = this.profile$.subscribe((profile) => {
+        if (this.profileStateResolved) {
+          resolve(profile);
+          subscription.unsubscribe(); // Clean up subscription
+        }
+      });
+    });
   }
 
   // Fetch a user's profile by their UID (read-only).
@@ -66,12 +87,13 @@ export class ProfileService {
 
     const newProfile: Profile = {
       documentID: user.uid,
-      avatarURL: '', // Default avatar URL
+      avatarURL: '',
       createdDate: new Date(),
       description: 'New user',
       displayName: 'Anonymous',
       email: user.email || '',
-      accountType, // Fallback to user.providerId for anonymous users
+      accountType,
+      roles: ['user'],
     };
 
     await setDoc(profileDoc, newProfile);
@@ -122,6 +144,7 @@ export class ProfileService {
       displayName: profile['displayName']?.trim() || 'Anonymous', // Fallback to 'Anonymous'
       email: profile['email'] || 'No email provided', // Fallback to a default email
       accountType: profile['accountType'] || 'anonymous', // Fallback to 'anonymous'
+      roles: profile['roles'] || [], // Fallback to an empty roles array
     };
   }
 }

@@ -8,4 +8,5 @@ export interface Profile {
   displayName: string;
   email: string;
   accountType: string;
+  roles: string[];
 }
