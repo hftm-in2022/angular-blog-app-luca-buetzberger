@@ -2,20 +2,16 @@
 
 <div class="blog-container">
   <!-- Loading State -->
-  @if (loading) {
-    <div class="loading">Blogs are loading... Please wait.</div>
-  } @else if (error) {
-    <!-- Error State -->
-    <div class="error">{{ error }}</div>
-  } @else if (blogs.length === 0) {
-    <!-- Empty State -->
-    <div class="no-blogs">No blogs found.</div>
-  } @else {
-    <!-- Blog Grid -->
-    <div class="blog-grid">
-      @for (blog of blogs; track blog.documentID) {
-        <app-blog-card [blog]="blog" (blogClick)="onBlogClick(blog.documentID)"></app-blog-card>
-      }
-    </div>
-  }
+  <div *ngIf="loading" class="loading">Blogs are loading... Please wait.</div>
+
+  <!-- Error State -->
+  <div *ngIf="!loading && error" class="error">{{ error }}</div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading && !error && blogs.length === 0" class="no-blogs">No blogs found.</div>
+
+  <!-- Blog Grid -->
+  <div *ngIf="!loading && !error && blogs.length > 0" class="blog-grid">
+    <app-blog-card *ngFor="let blog of blogs; trackBy: trackByBlogId" [blog]="blog" (blogClick)="onBlogClick(blog.documentID)"></app-blog-card>
+  </div>
 </div>
