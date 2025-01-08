@@ -97,14 +97,14 @@ export class ProfileService {
       documentID: user.uid,
       avatarURL: '',
       createdDate: new Date(),
-      description: 'New user',
+      description: 'This is a profile description',
       displayName: 'Anonymous',
       email: user.email || '',
-      accountType,
+      accountType: accountType || '',
       roles: ['user'],
     };
     try {
-      const validatedProfile = this.validateOutgoingProfile(newProfile);
+      const validatedProfile = this.validateOutgoingProfile(newProfile, userUID); // Pass userUID for validation
       await setDoc(profileDoc, validatedProfile); // Save the profile to Firestore
       console.log('ProfileService: Profile created successfully:', validatedProfile);
       return validatedProfile;
@@ -168,22 +168,40 @@ export class ProfileService {
   }
 
   // Validates and sanitizes a profile before sending it to the backend.
-  private validateOutgoingProfile(data: Partial<Profile>): Profile {
-    if (!data.displayName || typeof data.displayName !== 'string') {
-      throw new Error('Invalid profile: Display name is required and must be a string.');
+  private validateOutgoingProfile(data: Partial<Profile>, userUID: string): Profile {
+    if (!data.documentID || typeof data.documentID !== 'string' || data.documentID !== userUID) {
+      throw new Error('Invalid profile: Document ID is required, must be a string, and must match the userUID.');
     }
-    if (!data.email || typeof data.email !== 'string') {
-      throw new Error('Invalid profile: Email is required and must be a string.');
+    if (!Array.isArray(data.roles) || !data.roles.includes('user')) {
+      throw new Error('Invalid profile: Roles must be an array of strings and must include the role "user".');
+    }
+    if (data.avatarURL !== undefined && typeof data.avatarURL !== 'string') {
+      throw new Error('Invalid profile: avatarURL must be a string.');
+    }
+    if (data.createdDate !== undefined && !(data.createdDate instanceof Date)) {
+      throw new Error('Invalid profile: createdDate must be a Date object.');
+    }
+    if (data.description !== undefined && typeof data.description !== 'string') {
+      throw new Error('Invalid profile: description must be a string.');
+    }
+    if (data.displayName !== undefined && typeof data.displayName !== 'string') {
+      throw new Error('Invalid profile: displayName must be a string.');
+    }
+    if (data.email !== undefined && typeof data.email !== 'string') {
+      throw new Error('Invalid profile: email must be a string.');
+    }
+    if (data.accountType !== undefined && typeof data.accountType !== 'string') {
+      throw new Error('Invalid profile: accountType must be a string.');
     }
     return {
-      documentID: data.documentID || '', // Firestore will generate this automatically
-      avatarURL: data.avatarURL || '', // Default to an empty string
-      createdDate: data.createdDate || new Date(), // Default to the current date
-      description: data.description || 'No description provided', // Default description
-      displayName: data.displayName.trim(), // Ensure display name is trimmed
-      email: data.email || '', // Default email
-      accountType: data.accountType || 'anonymous', // Default account type
-      roles: Array.isArray(data.roles) ? data.roles : ['user'], // Default role is 'user'
+      documentID: data.documentID, // Required and validated above
+      avatarURL: data.avatarURL || '', // Optional, default to empty string if undefined
+      createdDate: data.createdDate || new Date(), // Optional, default to current date if undefined
+      description: data.description || '', // Optional, default to empty string if undefined
+      displayName: data.displayName || '', // Optional, default to empty string if undefined
+      email: data.email || '', // Optional, default to empty string if undefined
+      accountType: data.accountType || '', // Optional, default to empty string if undefined
+      roles: data.roles, // Required and validated above
     };
   }
 }

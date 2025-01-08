@@ -54,9 +54,7 @@ export class LoginPageComponent {
       this.authForm.markAllAsTouched();
       return;
     }
-
     const { email, password } = this.authForm.value;
-
     this.authService
       .loginWithEmail(email, password)
       .then(() => this.closeModal())
@@ -77,7 +75,6 @@ export class LoginPageComponent {
 
   getErrorMessage(error: FirebaseError): string {
     console.error('Firebase Error:', error); // Log the full error for debugging
-
     switch (error.code) {
       case 'auth/user-not-found':
         return 'Invalid credentials or user does not exist. Please try again.';

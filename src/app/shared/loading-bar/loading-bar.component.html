@@ -1,0 +1,7 @@
+<!-- src\app\shared\loading-bar\loading-bar.component.html -->
+
+<!-- For use with signals -->
+<mat-progress-bar *ngIf="loadingBarService.loading()" mode="indeterminate" color="primary" class="loading-bar"></mat-progress-bar>
+
+<!-- For use with Redux like patterm -->
+<!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="primary" class="loading-bar"></mat-progress-bar> -->
