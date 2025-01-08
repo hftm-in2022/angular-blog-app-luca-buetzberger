@@ -1,23 +1,14 @@
 <!-- src\app\features\login-page\login-page.component.html -->
 
-<div
-  class="modal-overlay"
-  (click)="closeModal()"
-  (keydown.enter)="closeModal()"
-  tabindex="0"
-></div>
+<div class="modal-overlay" (click)="closeModal()" (keydown.enter)="closeModal()" tabindex="0"></div>
 
 <div class="modal">
   <h2>Login</h2>
 
   <!-- Login Buttons -->
   <div class="login-buttons">
-    <button mat-raised-button color="primary" (click)="loginAnonymously()">
-      Login Anonymously
-    </button>
-    <button mat-raised-button color="primary" (click)="loginWithGoogle()">
-      Login with Google
-    </button>
+    <button mat-raised-button color="primary" (click)="loginAnonymously()">Login Anonymously</button>
+    <button mat-raised-button color="primary" (click)="loginWithGoogle()">Login with Google</button>
   </div>
 
   <div class="divider">or</div>
@@ -26,39 +17,22 @@
   <form [formGroup]="authForm" (ngSubmit)="loginWithEmail()">
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
-      <input
-        type="email"
-        matInput
-        formControlName="email"
-        placeholder="Enter your email"
-      />
-      @if (emailFormControl?.hasError("required")) {
+      <input type="email" matInput formControlName="email" placeholder="Enter your email" />
+      @if (emailFormControl?.hasError('required')) {
         <mat-error>Email is <strong>required</strong></mat-error>
       }
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
-      <input
-        type="password"
-        matInput
-        formControlName="password"
-        placeholder="Enter your password"
-      />
-      @if (passwordFormControl?.hasError("required")) {
+      <input type="password" matInput formControlName="password" placeholder="Enter your password" />
+      @if (passwordFormControl?.hasError('required')) {
         <mat-error>Password is <strong>required</strong></mat-error>
       }
     </mat-form-field>
 
     <!-- Submit Button -->
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="authForm.invalid"
-    >
-      Login
-    </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="authForm.invalid">Login</button>
   </form>
 
   <!-- Error Message -->
@@ -69,8 +43,6 @@
   }
 
   <div class="actions">
-    <button mat-button (click)="navigateToRegister()">
-      Don't have an account? Register
-    </button>
+    <button mat-button (click)="navigateToRegister()">Don't have an account? Register</button>
   </div>
 </div>
