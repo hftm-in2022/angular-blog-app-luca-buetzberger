@@ -3,9 +3,9 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { BlogPostService } from '../../services/blogpost.service';
-import { BlogPost } from '../../models/blogpost.model';
-import { BlogStateService } from '../../services/blog-state.service';
+import { BlogPostService } from '../../core/services/blogpost.service';
+import { BlogPost } from '../../core/models/blogpost.model';
+import { BlogStateService } from '../../core/services/blog-state.service';
 
 @Injectable({
   providedIn: 'root',

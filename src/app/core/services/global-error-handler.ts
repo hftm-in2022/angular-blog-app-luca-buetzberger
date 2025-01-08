@@ -1,5 +1,15 @@
+// src\app\core\services\global-error-handler.ts
+
+/**
+ * GlobalErrorHandler
+ * This service is a custom global error handler for the Angular application. It catches all
+ * unhandled errors and handles them based on the environment (production or development).
+ * In production, it redirects the user to a generic error page. In development, it logs
+ * the error details to the console for debugging purposes.
+ */
+
 import { ErrorHandler, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

@@ -10,7 +10,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
-import { GlobalErrorHandler } from './services/global-error-handler';
+import { GlobalErrorHandler } from './core/services/global-error-handler';
 
 export const appConfig: ApplicationConfig = {
   providers: [

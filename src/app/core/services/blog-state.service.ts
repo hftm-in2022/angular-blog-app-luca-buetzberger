@@ -1,4 +1,5 @@
-// src\app\services\blog-state.service.ts
+// src\app\core\services\blog-state.service.ts
+
 import { Injectable } from '@angular/core';
 import { BlogPost } from '../models/blogpost.model';
 

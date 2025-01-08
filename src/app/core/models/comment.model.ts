@@ -1,5 +1,6 @@
-// src\app\models\comment.model.ts
-export interface BlogPost {
+// src\app\core\models\comment.model.ts
+
+export interface Comment {
   documentID: string;
   blogID: string;
   content: string;

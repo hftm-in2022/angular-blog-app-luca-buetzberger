@@ -1,0 +1,43 @@
+<!-- src\app\shared\blog-card\blog-card.component.html -->
+
+<mat-card class="blog-card" (click)="onCardClick()">
+  <!-- Blog Image -->
+  @if (blog.imageURL) {
+    <div class="image-container">
+      <img [src]="blog.imageURL" alt="Blog image" />
+    </div>
+  }
+
+  <!-- Blog Title -->
+  <mat-card-title class="blog-title">{{ blog.title }}</mat-card-title>
+
+  <!-- Blog Metadata -->
+  <mat-card-content>
+    <div class="blog-metadata">
+      <!-- Category -->
+      <div class="blog-category">
+        Category: <span class="category">{{ blog.category }}</span>
+      </div>
+
+      <!-- Creation Date -->
+      <div class="blog-date">
+        {{ blog.publishedDate | date: 'medium' }}
+      </div>
+
+      <!-- User Info -->
+      <div class="blog-user">
+        <span class="user-id">User: {{ blog.userUID }}</span>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <!-- Likes Section -->
+  <!-- <mat-card-actions>
+    <div class="likes-section">
+      <button mat-icon-button class="like-button" aria-label="Like button">
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+      <span class="likes-count">{{ blog.likes }} Likes</span>
+    </div>
+  </mat-card-actions> -->
+</mat-card>

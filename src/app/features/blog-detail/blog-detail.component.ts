@@ -1,10 +1,10 @@
 // src\app\features\blog-detail\blog-detail.component.ts
 import { Component, OnInit } from '@angular/core';
-import { BlogPostService } from '../../services/blogpost.service';
-import { ProfileService } from '../../services/profile.service';
+import { BlogPostService } from '../../core/services/blogpost.service';
+import { ProfileService } from '../../core/services/profile.service';
 import { ActivatedRoute } from '@angular/router';
-import { BlogPost } from '../../models/blogpost.model';
-import { Profile } from '../../models/profile.model';
+import { BlogPost } from '../../core/models/blogpost.model';
+import { Profile } from '../../core/models/profile.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -30,11 +30,9 @@ export class BlogDetailComponent implements OnInit {
 
     // Fetch the profile of the blog author
     if (this.blog?.userUID) {
-      this.profileService
-        .getProfileById(this.blog.userUID)
-        .subscribe((profile) => {
-          this.profile = profile;
-        });
+      this.profileService.getProfileById(this.blog.userUID).subscribe((profile) => {
+        this.profile = profile;
+      });
     }
   }
 

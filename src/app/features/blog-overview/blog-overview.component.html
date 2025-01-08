@@ -1,30 +1,20 @@
-<div class="blog-container">
-  @if (error) {
-    <div class="error">{{ error }}</div>
-  }
+<!-- src\app\features\blog-overview\blog-overview.component.html -->
 
+<div class="blog-container">
+  <!-- Loading State -->
   @if (loading) {
-    <div class="loading">Loading blogs... Please wait.</div>
+    <div class="loading">Blogs are loading... Please wait.</div>
+  } @else if (error) {
+    <!-- Error State -->
+    <div class="error">{{ error }}</div>
   } @else if (blogs.length === 0) {
+    <!-- Empty State -->
     <div class="no-blogs">No blogs found.</div>
   } @else {
+    <!-- Blog Grid -->
     <div class="blog-grid">
       @for (blog of blogs; track blog.documentID) {
-        <div class="blog-card" (click)="onBlogClick(blog.documentID)">
-          @if (blog.imageURL) {
-            <img [src]="blog.imageURL" alt="Blog image" class="blog-image" />
-          }
-          <div class="blog-content">
-            <h2>{{ blog.title }}</h2>
-            <div class="blog-category">{{ blog.category }}</div>
-            <p class="blog-text">{{ blog.content }}</p>
-            @if (blog.publishedDate) {
-              <div class="blog-date">
-                {{ blog.publishedDate | date: "medium" }}
-              </div>
-            }
-          </div>
-        </div>
+        <app-blog-card [blog]="blog" (blogClick)="onBlogClick(blog.documentID)"></app-blog-card>
       }
     </div>
   }

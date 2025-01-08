@@ -1,4 +1,5 @@
-// src\app\models\profile.model.ts
+// src\app\core\models\profile.model.ts
+
 export interface Profile {
   documentID: string;
   avatarURL: string;
@@ -7,4 +8,5 @@ export interface Profile {
   displayName: string;
   email: string;
   accountType: string;
+  roles: string[];
 }

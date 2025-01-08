@@ -1,14 +1,9 @@
 // src\app\features\create-blog\create-blog.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedValidators } from '../../shared/validators/shared-validators.component';
-import { BlogPostService } from '../../services/blogpost.service';
+import { BlogPostService } from '../../core/services/blogpost.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -30,8 +25,8 @@ export class CreateBlogComponent implements OnInit {
 
   ngOnInit() {
     this.createBlogForm = this.fb.group({
-      title: ['', [Validators.required, SharedValidators.blogPostTitle()]],
-      content: ['', [Validators.required, SharedValidators.blogPostContent()]],
+      title: ['', [Validators.required, SharedValidators.blogPostTitle()]], // Title field validation
+      content: ['', [Validators.required, SharedValidators.blogPostContent()]], // Content field validation
     });
   }
 
@@ -51,16 +46,19 @@ export class CreateBlogComponent implements OnInit {
 
   async onSubmit() {
     if (this.createBlogForm.invalid) {
+      this.createBlogForm.markAllAsTouched(); // Mark all fields as touched to show validation errors
       return;
     }
 
     const { title, content } = this.createBlogForm.value;
 
     try {
-      // Upload the image to Firebase Storage and get its URL
-      const imageURL = await this.blogPostService.uploadImage(
-        this.selectedFile,
-      );
+      let imageURL: string | undefined = undefined;
+
+      // Upload the image to Firebase Storage only if an image is selected
+      if (this.selectedFile) {
+        imageURL = await this.blogPostService.uploadImage(this.selectedFile);
+      }
 
       // Create the blog post in Firestore
       await this.blogPostService.createBlogPost({
@@ -73,6 +71,7 @@ export class CreateBlogComponent implements OnInit {
       alert('Blog post created successfully!');
       this.createBlogForm.reset();
       this.imagePreview = null;
+      this.selectedFile = null;
     } catch (error) {
       console.error('Error creating blog post:', error);
       alert('Failed to create blog post. Please try again.');

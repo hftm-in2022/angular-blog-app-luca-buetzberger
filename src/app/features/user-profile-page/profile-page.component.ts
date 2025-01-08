@@ -1,9 +1,9 @@
 // src\app\features\user-profile-page\profile-page.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../../services/profile.service';
+import { ProfileService } from '../../core/services/profile.service';
 import { filter, Observable } from 'rxjs';
-import { Profile } from '../../models/profile.model';
+import { Profile } from '../../core/models/profile.model';
 import { CommonModule } from '@angular/common'; // Import CommonModule for pipes like 'date'
 
 @Component({

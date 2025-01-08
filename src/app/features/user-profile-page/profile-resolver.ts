@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ProfileService } from '../../services/profile.service';
-import { Profile } from '../../models/profile.model';
+import { ProfileService } from '../../core/services/profile.service';
+import { Profile } from '../../core/models/profile.model';
 
 @Injectable({
   providedIn: 'root',
