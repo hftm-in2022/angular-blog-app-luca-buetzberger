@@ -3,11 +3,11 @@
 import { TestBed } from '@angular/core/testing';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { authenticationGuard } from './authentication.guard';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/authentication.service';
 import { User } from '@angular/fire/auth'; // Import the User type
 
 describe('authenticationGuard', () => {
-  let mockAuthService: jasmine.SpyObj<AuthService>;
+  let mockAuthService: jasmine.SpyObj<AuthenticationService>;
   let mockRouter: jasmine.SpyObj<Router>;
   let mockRoute: ActivatedRouteSnapshot;
   let mockState: RouterStateSnapshot;
@@ -23,7 +23,7 @@ describe('authenticationGuard', () => {
 
     TestBed.configureTestingModule({
       providers: [
-        { provide: AuthService, useValue: mockAuthService },
+        { provide: AuthenticationService, useValue: mockAuthService },
         { provide: Router, useValue: mockRouter },
       ],
     });

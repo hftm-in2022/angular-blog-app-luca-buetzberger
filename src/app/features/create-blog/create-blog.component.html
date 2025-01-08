@@ -5,54 +5,25 @@
 <form [formGroup]="createBlogForm" (ngSubmit)="onSubmit()">
   <!-- Title -->
   <label for="title">Title</label>
-  <input
-    id="title"
-    type="text"
-    formControlName="title"
-    placeholder="Enter the blog title"
-  />
-  <div
-    [@if]="
-      createBlogForm.get('title')?.invalid &&
-      createBlogForm.get('title')?.touched
-    "
-  >
-    <small [hidden]="!createBlogForm.get('title')?.errors?.['required']"
-      >Title is required.</small
-    >
-    <small [@if]="createBlogForm.get('title')?.errors?.['minlength']"
-      >Title must be at least 8 characters long.</small
-    >
+  <input id="title" type="text" formControlName="title" placeholder="Enter the blog title" />
+  <div class="error" *ngIf="createBlogForm.get('title')?.invalid && createBlogForm.get('title')?.touched">
+    <p *ngIf="createBlogForm.get('title')?.errors?.['required']">Title is required.</p>
+    <p *ngIf="createBlogForm.get('title')?.errors?.['minlength']">Title is required and must be at least 5 characters long.</p>
   </div>
 
   <!-- Content -->
   <label for="content">Content</label>
-  <textarea
-    id="content"
-    formControlName="content"
-    placeholder="Enter the blog content"
-  ></textarea>
-  <div
-    [@if]="
-      createBlogForm.get('content')?.invalid &&
-      createBlogForm.get('content')?.touched
-    "
-  >
-    <small [@if]="createBlogForm.get('content')?.errors?.['required']"
-      >Content is required.</small
-    >
-    <small [@if]="createBlogForm.get('content')?.errors?.['minlength']"
-      >Content must be at least 8 characters long.</small
-    >
+  <textarea id="content" formControlName="content" placeholder="Enter the blog content"></textarea>
+  <div class="error" *ngIf="createBlogForm.get('content')?.invalid && createBlogForm.get('content')?.touched">
+    <p *ngIf="createBlogForm.get('content')?.errors?.['required']">Content is required.</p>
+    <p *ngIf="createBlogForm.get('content')?.errors?.['minlength']">Content is required and must be at least 5 characters long.</p>
   </div>
 
-  <!-- Image -->
-  <label for="image">Image</label>
+  <!-- Image (Optional) -->
+  <label for="image">Image (Optional)</label>
   <input id="image" type="file" (change)="onFileSelected($event)" />
-  <img [@if]="imagePreview" [src]="imagePreview" alt="Selected Image" />
+  <img *ngIf="imagePreview" [src]="imagePreview" alt="Selected Image" />
 
   <!-- Submit Button -->
-  <button type="submit" [disabled]="createBlogForm.invalid">
-    Create Blog Post
-  </button>
+  <button type="submit" [disabled]="createBlogForm.invalid">Create Blog Post</button>
 </form>

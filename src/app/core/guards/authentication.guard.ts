@@ -11,11 +11,11 @@
  */
 
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/authentication.service';
 import { inject } from '@angular/core';
 
 export const authenticationGuard: CanActivateFn = async () => {
-  const authService = inject(AuthService); // Check the user's login state
+  const authService = inject(AuthenticationService); // Check the user's login state
   const router = inject(Router); // Handle navigation
 
   try {

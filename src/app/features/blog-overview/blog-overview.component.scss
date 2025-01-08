@@ -1,28 +1,43 @@
 // src\app\features\blog-overview\blog-overview.component.scss
 
+/* Blog Container */
 .blog-container {
   padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
 }
 
+/* Blog Grid */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid */
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
   justify-content: center;
 }
 
+/* Error Message */
 .error {
   color: #dc3545;
   text-align: center;
-  padding: 20px;
+  padding: 1rem;
   background: #ffe6e6;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
+/* Loading State */
 .loading {
   text-align: center;
-  padding: 40px;
+  padding: 2rem;
   color: #666;
-  font-size: 1.2em;
+  font-size: 1.2rem;
+}
+
+/* Empty State */
+.no-blogs {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+  font-size: 1.2rem;
 }

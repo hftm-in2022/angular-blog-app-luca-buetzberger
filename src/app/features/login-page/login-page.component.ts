@@ -1,7 +1,7 @@
 // src\app\features\login-page\login-page.component.ts
 
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthenticationService } from '../../core/services/authentication.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -24,7 +24,7 @@ export class LoginPageComponent {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private router: Router,
   ) {
     this.authForm = this.fb.group({

@@ -1,1 +1,41 @@
 // src\app\features\registration-page\registration-page.component.scss
+
+/* Center the modal on the page */
+.modal {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form fields */
+}
+
+/* Form field styling */
+mat-form-field {
+  width: 100%; /* Make form fields take up the full width */
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.875rem; /* Small text */
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Button styling */
+button {
+  width: 100%; /* Full-width button */
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Add spacing between form fields */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Space between form fields */
+}

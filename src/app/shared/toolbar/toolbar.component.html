@@ -1,60 +1,52 @@
 <!-- src\app\shared\toolbar\toolbar.component.html -->
 
 <nav>
+  <!-- Left Section: Logo and Title -->
   <div class="logo">
-    <a routerLink="/">
-      <p>Lucas Blog</p>
-    </a>
+    <!-- <img src="logo-AppertureScience.png" alt="Lucas Blog Logo" /> -->
+    <h4>Lucas Blog</h4>
   </div>
-  <ul>
-    <li><a routerLink="/demo">Demo</a></li>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/about">About</a></li>
-  </ul>
 
-  <!-- Add blog post button -->
-  <button
-    class="create-post-button"
-    [disabled]="(user$ | async) === null"
-    [routerLink]="['/createBlogPost']"
-    aria-label="Create Blog Post"
-    [title]="(user$ | async) === null ? 'Log in to create a blog post' : ''"
-  >
-    +
-  </button>
+  <!-- Right Section: Links and Buttons -->
+  <div class="right-section">
+    <!-- Navigation Links -->
+    <a routerLink="/" class="nav-link">Home</a>
+    <a routerLink="/demo" class="nav-link">Demo</a>
 
-  <!-- Right-side buttons -->
-  <div class="auth-buttons">
-    <!-- Use @if to check if the user is logged in -->
+    <!-- Divider Line -->
+    <div class="divider"></div>
+
+    <!-- Create Blog Button -->
+    <button
+      class="create-post-button"
+      [disabled]="(user$ | async) === null"
+      [routerLink]="['/createBlog']"
+      matTooltip="Log in to create a blog post"
+      [matTooltipDisabled]="(user$ | async) !== null"
+      aria-label="Create Blog Post"
+    >
+      +
+    </button>
+
+    <!-- Divider Line -->
+    <div class="divider"></div>
+
+    <!-- Profile Avatar -->
     @if (user$ | async) {
-      <!-- Show profile avatar and logout button if logged in -->
-      <div
-        class="profile-avatar-container"
+      <img
+        [src]="(profile$ | async)?.avatarURL || 'profile_avatar-placeholder.png'"
+        alt="User avatar"
+        class="profile-avatar"
         (click)="goToProfile()"
         (keydown.enter)="goToProfile()"
-        (keydown.space)="goToProfile()"
-        role="button"
-        aria-label="View Profile"
         tabindex="0"
-      >
-        <img
-          [src]="
-            (profile$ | async)?.avatarURL || 'profile_avatar-placeholder.png'
-          "
-          alt="User avatar"
-          class="profile-avatar"
-        />
-      </div>
+      />
       <button (click)="logout()">Logout</button>
     } @else {
-      <!-- Show login button if not logged in -->
       <button (click)="openLoginModal()">Login</button>
     }
   </div>
 </nav>
 
 <!-- Login Modal -->
-<app-login-page
-  *ngIf="showLoginModal"
-  (close)="closeLoginModal()"
-></app-login-page>
+<app-login-page *ngIf="showLoginModal" (close)="closeLoginModal()"> </app-login-page>

@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthenticationService } from '../../core/services/authentication.service';
 import { FirebaseError } from '@angular/fire/app';
 
 @Component({
@@ -24,7 +24,7 @@ export class RegistrationPageComponent {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    private authService: AuthenticationService,
   ) {
     this.registerForm = this.fb.group(
       {
