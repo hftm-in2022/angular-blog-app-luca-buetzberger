@@ -17,6 +17,7 @@ Note: The version on azure currently seems to have problems regarding the login 
 https://lemon-desert-069057103.5.azurestaticapps.net/
 
 ### Video presentation
+Youtube Video: https://youtu.be/S2i2hgDS3G8
 
 Milestone 1:
 
