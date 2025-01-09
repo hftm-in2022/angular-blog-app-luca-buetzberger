@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-blog-detail',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.scss',

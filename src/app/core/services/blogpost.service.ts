@@ -29,27 +29,14 @@ export class BlogPostService {
     console.log('BlogPostService: Fetching all blog posts from Firestore...');
     const blogsCollection = collection(this.firestore, 'blogposts');
     const blogsQuery = query(blogsCollection, orderBy('publishedDate', 'desc'));
-    return collectionData(blogsQuery, { idField: 'documentID' }).pipe(
-      map((blogs: (DocumentData | undefined)[]) =>
-        blogs
-          .filter((blog): blog is DocumentData => blog !== undefined) // Filter out undefined
-          .map((blog) => this.validateIncomingBlogPost(blog)),
-      ),
-    );
+    return collectionData(blogsQuery, { idField: 'documentID' }).pipe(map((blogs: DocumentData[]) => blogs.map((blog) => this.validateIncomingBlogPost(blog))));
   }
 
   // Fetches a single blog post by its ID from Firestore.
   getBlogById(blogId: string): Observable<BlogPost> {
     console.log(`BlogPostService: Fetching blog post with ID '${blogId}' from Firestore...`);
     const blogDoc = doc(this.firestore, 'blogposts', blogId);
-    return docData(blogDoc, { idField: 'documentID' }).pipe(
-      map((blog: DocumentData | undefined) => {
-        if (!blog) {
-          throw new Error(`Blog post with ID '${blogId}' not found.`);
-        }
-        return this.validateIncomingBlogPost(blog);
-      }),
-    );
+    return docData(blogDoc, { idField: 'documentID' }).pipe(map((blog: DocumentData) => this.validateIncomingBlogPost(blog)));
   }
 
   // Uploads an image file to Firebase Storage and returns its download URL.

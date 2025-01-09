@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-loading-bar',
+  standalone: true,
   imports: [CommonModule, MatProgressBarModule],
   templateUrl: './loading-bar.component.html',
   styleUrls: ['./loading-bar.component.scss'],
