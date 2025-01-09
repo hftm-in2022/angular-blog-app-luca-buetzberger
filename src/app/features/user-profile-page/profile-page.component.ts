@@ -7,7 +7,8 @@ import { Profile } from '../../core/models/profile.model';
 import { CommonModule } from '@angular/common'; // Import CommonModule for pipes like 'date'
 
 @Component({
-  selector: 'app-profile-page', // Mark the component as standalone
+  selector: 'app-profile-page',
+  standalone: true, // Mark the component as standalone
   imports: [CommonModule], // Add CommonModule to enable pipes like 'date'
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
