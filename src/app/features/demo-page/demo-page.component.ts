@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -9,16 +8,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatCardModule,
-    CommonModule,
-  ],
+  imports: [FormsModule, MatButtonModule, MatInputModule, MatSelectModule, MatCardModule, CommonModule],
   templateUrl: './demo-page.component.html',
   styleUrl: './demo-page.component.scss',
 })
