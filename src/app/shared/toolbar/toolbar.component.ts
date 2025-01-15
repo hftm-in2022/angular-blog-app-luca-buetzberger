@@ -20,7 +20,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-toolbar',
-  standalone: true,
   imports: [RouterModule, CommonModule, MatTooltipModule, LoginPageComponent],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],

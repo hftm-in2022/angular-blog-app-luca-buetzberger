@@ -9,16 +9,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatCardModule,
-    CommonModule,
-  ],
+  imports: [RouterOutlet, FormsModule, MatButtonModule, MatInputModule, MatSelectModule, MatCardModule, CommonModule],
   templateUrl: './demo-page.component.html',
   styleUrl: './demo-page.component.scss',
 })
