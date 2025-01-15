@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-blog-card',
-  standalone: true,
   imports: [CommonModule, MatCardModule, MatIconModule],
   templateUrl: './blog-card.component.html',
   styleUrls: ['./blog-card.component.scss'],

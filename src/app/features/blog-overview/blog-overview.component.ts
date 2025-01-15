@@ -15,7 +15,6 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-overview',
-  standalone: true,
   imports: [CommonModule, RouterModule, BlogCardComponent],
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],

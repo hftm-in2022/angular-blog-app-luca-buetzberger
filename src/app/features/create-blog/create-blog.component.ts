@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-blog',
-  standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './create-blog.component.html',
   styleUrl: './create-blog.component.scss',
