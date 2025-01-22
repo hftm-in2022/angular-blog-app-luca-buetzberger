@@ -11,7 +11,6 @@ import { FirebaseError } from '@angular/fire/app';
 
 @Component({
   selector: 'app-register-modal',
-  standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss'],

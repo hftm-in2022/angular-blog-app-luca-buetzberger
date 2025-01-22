@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
-  standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],

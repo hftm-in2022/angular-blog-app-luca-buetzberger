@@ -6,7 +6,6 @@ import { LoadingBarService } from './core/services/loading-bar.service';
 import { LoadingBarComponent } from './shared/loading-bar/loading-bar.component';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   imports: [RouterOutlet, ToolbarComponent, LoadingBarComponent],
   templateUrl: './app.component.html',
