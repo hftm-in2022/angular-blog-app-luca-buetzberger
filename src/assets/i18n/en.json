@@ -7,11 +7,7 @@
     "login": "Login",
     "logout": "Logout",
     "profile": "Profile",
-    "language": {
-      "label": "Language",
-      "english": "English",
-      "german": "German"
-    }
+    "language": "Language"
   }, 
   "blogCard": {
     "category": "Category",
