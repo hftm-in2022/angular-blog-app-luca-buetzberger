@@ -97,5 +97,13 @@
       "passwordMismatch": "Passwords do not match."
     },
     "submitButton": "Register"
+  }, 
+  "profilePage": {
+    "noProfile": "Profile not found.",
+    "email": "Email",
+    "description": "Description",
+    "joined": "Joined",
+    "roles": "Roles",
+    "profileId": "ProfileID / UserUID"
   }
 }

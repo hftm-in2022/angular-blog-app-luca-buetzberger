@@ -4,12 +4,13 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../core/services/profile.service';
 import { filter, Observable } from 'rxjs';
 import { Profile } from '../../core/models/profile.model';
-import { CommonModule } from '@angular/common'; // Import CommonModule for pipes like 'date'
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile-page',
-  standalone: true, // Mark the component as standalone
-  imports: [CommonModule], // Add CommonModule to enable pipes like 'date'
+  standalone: true,
+  imports: [CommonModule, TranslateModule],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
