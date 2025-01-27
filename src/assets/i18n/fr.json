@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Lucas Blog en Ligne",
+    "home": "Accueil",
+    "demo": "Démo",
+    "createPostTooltip": "Connectez-vous pour créer un article de blog",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "profile": "Profil",
+    "language": "Langue"
+  },
+  "blogCard": {
+    "category": "Catégorie",
+    "user": "Utilisateur"
+  },
+  "errorPage": {
+    "title": "Oups ! Quelque chose s'est mal passé.",
+    "message": "Nous travaillons à résoudre le problème. Veuillez réessayer plus tard.",
+    "goHome": "Retour à l'accueil"
+  },
+  "blogDetail": {
+    "category": "Catégorie",
+    "likes": "J'aime",
+    "publishedDate": "Date de publication"
+  },
+  "blogOverview": {
+    "loading": "Chargement des blogs... Veuillez patienter.",
+    "error": "Une erreur s'est produite. Veuillez réessayer plus tard.",
+    "noBlogs": "Aucun blog trouvé."
+  },
+  "createBlog": {
+    "title": "Créer un nouvel article de blog",
+    "form": {
+      "titleLabel": "Titre",
+      "titlePlaceholder": "Entrez le titre du blog",
+      "titleRequired": "Le titre est obligatoire.",
+      "titleMinLength": "Le titre doit comporter au moins 5 caractères.",
+      "contentLabel": "Contenu",
+      "contentPlaceholder": "Entrez le contenu du blog",
+      "contentRequired": "Le contenu est obligatoire.",
+      "contentMinLength": "Le contenu doit comporter au moins 5 caractères.",
+      "imageLabel": "Image (facultatif)",
+      "submitButton": "Créer un article de blog"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Démo d'événement de clic",
+    "clickMeButton": "Cliquez-moi !",
+    "count": "Compteur",
+    "ifSwitchTitle": "Démo if et switch",
+    "countGreater": "Le compteur est supérieur à 5 !",
+    "keepClicking": "Continuez à cliquer !",
+    "optionOne": "Option Un sélectionnée",
+    "optionTwo": "Option Deux sélectionnée",
+    "otherOption": "Autre option sélectionnée",
+    "selectOptionLabel": "Sélectionner une option",
+    "forTitle": "Démo for",
+    "ngClassTitle": "Démo NGClass",
+    "ngClassText": "Ce texte change de couleur",
+    "toggleColorButton": "Changer la couleur",
+    "ngStyleTitle": "Démo NGStyle",
+    "ngStyleText": "Ce texte grandit avec les clics sur \"Cliquez-moi !\"",
+    "ngModelTitle": "Démo NGModel",
+    "ngModelLabel": "Entrez du texte",
+    "ngModelPlaceholder": "Tapez quelque chose",
+    "youTyped": "Vous avez tapé"
+  },
+  "loginPage": {
+    "title": "Connexion",
+    "loginAnonymously": "Connexion anonyme",
+    "loginWithGoogle": "Se connecter avec Google",
+    "divider": "ou",
+    "form": {
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "Entrez votre e-mail",
+      "emailRequired": "L'e-mail est obligatoire.",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "passwordRequired": "Le mot de passe est obligatoire.",
+      "submitButton": "Connexion"
+    },
+    "registerPrompt": "Vous n'avez pas de compte ? Inscrivez-vous"
+  },
+  "registrationPage": {
+    "title": "Inscription",
+    "form": {
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "Ex. pat@example.com",
+      "emailInvalid": "Veuillez entrer une adresse e-mail valide.",
+      "emailRequired": "L'e-mail est obligatoire.",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "passwordRequired": "Le mot de passe est obligatoire.",
+      "passwordInvalid": "Le mot de passe doit comporter au moins 8 caractères, inclure une majuscule, une minuscule, un caractère spécial et ne contenir aucun espace.",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre mot de passe",
+      "passwordMismatch": "Les mots de passe ne correspondent pas."
+    },
+    "submitButton": "S'inscrire"
+  },
+  "profilePage": {
+    "noProfile": "Profil introuvable.",
+    "email": "E-mail",
+    "description": "Description",
+    "joined": "Inscrit",
+    "roles": "Rôles",
+    "profileId": "ID de profil / UID utilisateur"
+  }
+}
