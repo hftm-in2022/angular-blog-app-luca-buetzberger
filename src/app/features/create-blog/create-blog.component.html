@@ -1,29 +1,29 @@
 <!-- src\app\features\create-blog\create-blog.component.html -->
 
-<h1>Create a New Blog Post</h1>
+<h1>{{ 'createBlog.title' | translate }}</h1>
 
 <form [formGroup]="createBlogForm" (ngSubmit)="onSubmit()">
   <!-- Title -->
-  <label for="title">Title</label>
-  <input id="title" type="text" formControlName="title" placeholder="Enter the blog title" />
+  <label for="title">{{ 'createBlog.form.titleLabel' | translate }}</label>
+  <input id="title" type="text" formControlName="title" [placeholder]="'createBlog.form.titlePlaceholder' | translate" />
   <div class="error" *ngIf="createBlogForm.get('title')?.invalid && createBlogForm.get('title')?.touched">
-    <p *ngIf="createBlogForm.get('title')?.errors?.['required']">Title is required.</p>
-    <p *ngIf="createBlogForm.get('title')?.errors?.['minlength']">Title is required and must be at least 5 characters long.</p>
+    <p *ngIf="createBlogForm.get('title')?.errors?.['required']">{{ 'createBlog.form.titleRequired' | translate }}</p>
+    <p *ngIf="createBlogForm.get('title')?.errors?.['minlength']">{{ 'createBlog.form.titleMinLength' | translate }}</p>
   </div>
 
   <!-- Content -->
-  <label for="content">Content</label>
-  <textarea id="content" formControlName="content" placeholder="Enter the blog content"></textarea>
+  <label for="content"> {{ 'createBlog.form.contentLabel' | translate }} </label>
+  <textarea id="content" formControlName="content" [placeholder]="'createBlog.form.contentPlaceholder' | translate"></textarea>
   <div class="error" *ngIf="createBlogForm.get('content')?.invalid && createBlogForm.get('content')?.touched">
-    <p *ngIf="createBlogForm.get('content')?.errors?.['required']">Content is required.</p>
-    <p *ngIf="createBlogForm.get('content')?.errors?.['minlength']">Content is required and must be at least 5 characters long.</p>
+    <p *ngIf="createBlogForm.get('content')?.errors?.['required']">{{ 'createBlog.form.contentRequired' | translate }}</p>
+    <p *ngIf="createBlogForm.get('content')?.errors?.['minlength']">{{ 'createBlog.form.contentMinLength' | translate }}</p>
   </div>
 
   <!-- Image (Optional) -->
-  <label for="image">Image (Optional)</label>
+  <label for="image"> {{ 'createBlog.form.imageLabel' | translate }} </label>
   <input id="image" type="file" (change)="onFileSelected($event)" />
   <img *ngIf="imagePreview" [src]="imagePreview" alt="Selected Image" />
 
   <!-- Submit Button -->
-  <button type="submit" [disabled]="createBlogForm.invalid">Create Blog Post</button>
+  <button type="submit" [disabled]="createBlogForm.invalid">{{ 'createBlog.form.submitButton' | translate }}</button>
 </form>

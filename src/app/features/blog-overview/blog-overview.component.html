@@ -2,13 +2,13 @@
 
 <div class="blog-container">
   <!-- Loading State -->
-  <div *ngIf="loading" class="loading">Blogs are loading... Please wait.</div>
+  <div *ngIf="loading" class="loading">{{ 'blogOverview.loading' | translate }}</div>
 
   <!-- Error State -->
-  <div *ngIf="!loading && error" class="error">{{ error }}</div>
+  <div *ngIf="!loading && error" class="error">{{ 'blogOverview.error' | translate }}</div>
 
   <!-- Empty State -->
-  <div *ngIf="!loading && !error && blogs.length === 0" class="no-blogs">No blogs found.</div>
+  <div *ngIf="!loading && !error && blogs.length === 0" class="no-blogs">{{ 'blogOverview.noBlogs' | translate }}</div>
 
   <!-- Blog Grid -->
   <div *ngIf="!loading && !error && blogs.length > 0" class="blog-grid">

@@ -3,12 +3,12 @@
 <div *ngIf="profile$ | async as profile; else noProfile">
   <h1>{{ profile.displayName }}</h1>
   <img [src]="profile.avatarURL" alt="Avatar" (error)="onImageError($event)" />
-  <p>Email: {{ profile.email }}</p>
-  <p>Description: {{ profile.description }}</p>
-  <p>Joined: {{ profile.createdDate | date }}</p>
-  <p>Roles: {{ profile.roles }}</p>
-  <p>ProfileID / UserUID: {{ profile.documentID }}</p>
+  <p>{{ 'profilePage.email' | translate }}: {{ profile.email }}</p>
+  <p>{{ 'profilePage.description' | translate }}: {{ profile.description }}</p>
+  <p>{{ 'profilePage.joined' | translate }}: {{ profile.createdDate | date }}</p>
+  <p>{{ 'profilePage.roles' | translate }}: {{ profile.roles }}</p>
+  <p>{{ 'profilePage.profileId' | translate }}: {{ profile.documentID }}</p>
 </div>
 <ng-template #noProfile>
-  <p>Profile not found.</p>
+  <p>{{ 'profilePage.noProfile' | translate }}</p>
 </ng-template>

@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Lucas Blog",
+    "home": "Home",
+    "demo": "Demo",
+    "createPostTooltip": "Log in to create a blog post",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "language": "Language"
+  }, 
+  "blogCard": {
+    "category": "Category",
+    "user": "User"
+  },
+  "errorPage": {
+    "title": "Oops! Something went wrong.",
+    "message": "We're working to fix the issue. Please try again later.",
+    "goHome": "Go back to Home"
+  }, 
+  "blogDetail": {
+    "category": "Category",
+    "likes": "Likes",
+    "publishedDate": "Published Date"
+  }, 
+  "blogOverview": {
+    "loading": "Blogs are loading... Please wait.",
+    "error": "An error occurred. Please try again later.",
+    "noBlogs": "No blogs found."
+  }, 
+  "createBlog": {
+    "title": "Create a New Blog Post",
+    "form": {
+      "titleLabel": "Title",
+      "titlePlaceholder": "Enter the blog title",
+      "titleRequired": "Title is required.",
+      "titleMinLength": "Title must be at least 5 characters long.",
+      "contentLabel": "Content",
+      "contentPlaceholder": "Enter the blog content",
+      "contentRequired": "Content is required.",
+      "contentMinLength": "Content must be at least 5 characters long.",
+      "imageLabel": "Image (Optional)",
+      "submitButton": "Create Blog Post"
+    }
+  }, 
+  "demo": {
+    "clickEventTitle": "Click Event Demo",
+    "clickMeButton": "Click me!",
+    "count": "Count",
+    "ifSwitchTitle": "if and switch Demo",
+    "countGreater": "Count is greater than 5!",
+    "keepClicking": "Keep clicking!",
+    "optionOne": "Option One selected",
+    "optionTwo": "Option Two selected",
+    "otherOption": "Other option selected",
+    "selectOptionLabel": "Select Option",
+    "forTitle": "for Demo",
+    "ngClassTitle": "NGClass Demo",
+    "ngClassText": "This text changes color",
+    "toggleColorButton": "Toggle Color",
+    "ngStyleTitle": "NGStyle Demo",
+    "ngStyleText": "This text grows with clicks on \"Click me!\"",
+    "ngModelTitle": "NGModel Demo",
+    "ngModelLabel": "Enter text",
+    "ngModelPlaceholder": "Type something",
+    "youTyped": "You typed"
+  }, 
+  "loginPage": {
+    "title": "Login",
+    "loginAnonymously": "Login Anonymously",
+    "loginWithGoogle": "Login with Google",
+    "divider": "or",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "emailRequired": "Email is required.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordRequired": "Password is required.",
+      "submitButton": "Login"
+    },
+    "registerPrompt": "Don't have an account? Register"
+  }, 
+  "registrationPage": {
+    "title": "Register",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Ex. pat@example.com",
+      "emailInvalid": "Please enter a valid email address.",
+      "emailRequired": "Email is required.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordRequired": "Password is required.",
+      "passwordInvalid": "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one special character, and no spaces.",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "passwordMismatch": "Passwords do not match."
+    },
+    "submitButton": "Register"
+  }, 
+  "profilePage": {
+    "noProfile": "Profile not found.",
+    "email": "Email",
+    "description": "Description",
+    "joined": "Joined",
+    "roles": "Roles",
+    "profileId": "ProfileID / UserUID"
+  }
+}

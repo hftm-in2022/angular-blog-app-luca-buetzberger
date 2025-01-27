@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Lucas Blog en Línea",
+    "home": "Inicio",
+    "demo": "Demo",
+    "createPostTooltip": "Inicia sesión para crear una publicación en el blog",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "profile": "Perfil",
+    "language": "Idioma"
+  },
+  "blogCard": {
+    "category": "Categoría",
+    "user": "Usuario"
+  },
+  "errorPage": {
+    "title": "¡Ups! Algo salió mal.",
+    "message": "Estamos trabajando para solucionar el problema. Por favor, inténtalo de nuevo más tarde.",
+    "goHome": "Volver al inicio"
+  },
+  "blogDetail": {
+    "category": "Categoría",
+    "likes": "Me gusta",
+    "publishedDate": "Fecha de publicación"
+  },
+  "blogOverview": {
+    "loading": "Cargando blogs... Por favor espera.",
+    "error": "Ocurrió un error. Por favor, inténtalo de nuevo más tarde.",
+    "noBlogs": "No se encontraron blogs."
+  },
+  "createBlog": {
+    "title": "Crear una nueva publicación en el blog",
+    "form": {
+      "titleLabel": "Título",
+      "titlePlaceholder": "Introduce el título del blog",
+      "titleRequired": "El título es obligatorio.",
+      "titleMinLength": "El título debe tener al menos 5 caracteres.",
+      "contentLabel": "Contenido",
+      "contentPlaceholder": "Introduce el contenido del blog",
+      "contentRequired": "El contenido es obligatorio.",
+      "contentMinLength": "El contenido debe tener al menos 5 caracteres.",
+      "imageLabel": "Imagen (Opcional)",
+      "submitButton": "Crear publicación en el blog"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Demostración de evento de clic",
+    "clickMeButton": "¡Haz clic en mí!",
+    "count": "Contador",
+    "ifSwitchTitle": "Demostración de if y switch",
+    "countGreater": "¡El contador es mayor que 5!",
+    "keepClicking": "¡Sigue haciendo clic!",
+    "optionOne": "Opción Uno seleccionada",
+    "optionTwo": "Opción Dos seleccionada",
+    "otherOption": "Otra opción seleccionada",
+    "selectOptionLabel": "Seleccionar opción",
+    "forTitle": "Demostración de for",
+    "ngClassTitle": "Demostración de NGClass",
+    "ngClassText": "Este texto cambia de color",
+    "toggleColorButton": "Cambiar color",
+    "ngStyleTitle": "Demostración de NGStyle",
+    "ngStyleText": "Este texto crece con los clics en \"¡Haz clic en mí!\"",
+    "ngModelTitle": "Demostración de NGModel",
+    "ngModelLabel": "Introduce texto",
+    "ngModelPlaceholder": "Escribe algo",
+    "youTyped": "Escribiste"
+  },
+  "loginPage": {
+    "title": "Iniciar sesión",
+    "loginAnonymously": "Iniciar sesión de forma anónima",
+    "loginWithGoogle": "Iniciar sesión con Google",
+    "divider": "o",
+    "form": {
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "Introduce tu correo electrónico",
+      "emailRequired": "El correo electrónico es obligatorio.",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "passwordRequired": "La contraseña es obligatoria.",
+      "submitButton": "Iniciar sesión"
+    },
+    "registerPrompt": "¿No tienes una cuenta? Regístrate"
+  },
+  "registrationPage": {
+    "title": "Registrarse",
+    "form": {
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "Ej. pat@example.com",
+      "emailInvalid": "Por favor, introduce una dirección de correo electrónico válida.",
+      "emailRequired": "El correo electrónico es obligatorio.",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "passwordRequired": "La contraseña es obligatoria.",
+      "passwordInvalid": "La contraseña debe tener al menos 8 caracteres, incluir al menos una letra mayúscula, una minúscula, un carácter especial y no contener espacios.",
+      "confirmPasswordLabel": "Confirmar contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "passwordMismatch": "Las contraseñas no coinciden."
+    },
+    "submitButton": "Registrarse"
+  },
+  "profilePage": {
+    "noProfile": "Perfil no encontrado.",
+    "email": "Correo electrónico",
+    "description": "Descripción",
+    "joined": "Unido",
+    "roles": "Roles",
+    "profileId": "ID de perfil / UID de usuario"
+  }
+}

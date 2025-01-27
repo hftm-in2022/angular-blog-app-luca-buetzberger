@@ -1,76 +1,42 @@
 <!-- src\app\features\registration-page\registration-page.component.html -->
 
-<div
-  class="modal-overlay"
-  (click)="closeModal()"
-  (keydown.enter)="closeModal()"
-  tabindex="0"
-></div>
+<div class="modal-overlay" (click)="closeModal()" (keydown.enter)="closeModal()" tabindex="0"></div>
 
 <div class="modal">
-  <h2>Register</h2>
+  <h2>{{ 'registrationPage.title' | translate }}</h2>
 
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <mat-form-field class="form-field-email">
-      <mat-label>Email</mat-label>
-      <input
-        type="email"
-        matInput
-        formControlName="email"
-        placeholder="Ex. pat@example.com"
-      />
-      @if (
-        emailFormControl?.hasError("email") &&
-        !emailFormControl?.hasError("required")
-      ) {
-        <mat-error>Please enter a valid email address</mat-error>
-      }
-      @if (emailFormControl?.hasError("required")) {
-        <mat-error>Email is <strong>required</strong></mat-error>
-      }
+      <mat-label>{{ 'registrationPage.form.emailLabel' | translate }}</mat-label>
+      <input type="email" matInput formControlName="email" [placeholder]="'registrationPage.form.emailPlaceholder' | translate" />
+      <mat-error *ngIf="emailFormControl?.hasError('email') && !emailFormControl?.hasError('required')">
+        {{ 'registrationPage.form.emailInvalid' | translate }}
+      </mat-error>
+      <mat-error *ngIf="emailFormControl?.hasError('required')">
+        {{ 'registrationPage.form.emailRequired' | translate }}
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-field-password">
-      <mat-label>Password</mat-label>
-      <input
-        type="password"
-        matInput
-        formControlName="password"
-        placeholder="Enter your password"
-      />
-      @if (passwordFormControl?.hasError("required")) {
-        <mat-error>Password is <strong>required</strong></mat-error>
-      }
-      @if (passwordFormControl?.hasError("invalidPassword")) {
-        <mat-error>
-          Password must be at least 8 characters long, include at least one
-          uppercase letter, one lowercase letter, one special character, and no
-          spaces.
-        </mat-error>
-      }
+      <mat-label>{{ 'registrationPage.form.passwordLabel' | translate }}</mat-label>
+      <input type="password" matInput formControlName="password" [placeholder]="'registrationPage.form.passwordPlaceholder' | translate" />
+      <mat-error *ngIf="passwordFormControl?.hasError('required')">
+        {{ 'registrationPage.form.passwordRequired' | translate }}
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl?.hasError('invalidPassword')">
+        {{ 'registrationPage.form.passwordInvalid' | translate }}
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-field-password">
-      <mat-label>Confirm Password</mat-label>
-      <input
-        type="password"
-        matInput
-        formControlName="confirmPassword"
-        placeholder="Confirm your password"
-      />
-      @if (registerForm.hasError("passwordMismatch")) {
-        <mat-error>Passwords do not match</mat-error>
-      }
+      <mat-label>{{ 'registrationPage.form.confirmPasswordLabel' | translate }}</mat-label>
+      <input type="password" matInput formControlName="confirmPassword" [placeholder]="'registrationPage.form.confirmPasswordPlaceholder' | translate" />
+      <mat-error *ngIf="registerForm.hasError('passwordMismatch')">
+        {{ 'registrationPage.form.passwordMismatch' | translate }}
+      </mat-error>
     </mat-form-field>
 
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="registerForm.invalid"
-    >
-      Register
-    </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">{{ 'registrationPage.submitButton' | translate }}</button>
   </form>
 
   @if (errorMessage) {

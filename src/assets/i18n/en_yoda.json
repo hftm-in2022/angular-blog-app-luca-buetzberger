@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Blog Lucas, it is",
+    "home": "Home, it is",
+    "demo": "Demo, it is",
+    "createPostTooltip": "To create a blog post, log in you must",
+    "login": "Login, you will",
+    "logout": "Logout, you shall",
+    "profile": "Profile, it is",
+    "language": "Language, it is"
+  },
+  "blogCard": {
+    "category": "Category, it is",
+    "user": "User, it is"
+  },
+  "errorPage": {
+    "title": "Oops! Wrong, something went.",
+    "message": "To fix the issue, we are working. Again later, try you must.",
+    "goHome": "Back to Home, go you must"
+  },
+  "blogDetail": {
+    "category": "Category, it is",
+    "likes": "Likes, many",
+    "publishedDate": "Date published, it is"
+  },
+  "blogOverview": {
+    "loading": "Loading blogs, they are... Wait, please.",
+    "error": "An error occurred, it did. Again later, try you must.",
+    "noBlogs": "Found, no blogs are."
+  },
+  "createBlog": {
+    "title": "A New Blog Post, create you must",
+    "form": {
+      "titleLabel": "Title, it is",
+      "titlePlaceholder": "Enter the title of the blog, you must",
+      "titleRequired": "Required, the title is.",
+      "titleMinLength": "At least 5 characters long, the title must be.",
+      "contentLabel": "Content, it is",
+      "contentPlaceholder": "Enter the content of the blog, you must",
+      "contentRequired": "Required, the content is.",
+      "contentMinLength": "At least 5 characters long, the content must be.",
+      "imageLabel": "Image (Optional, it is)",
+      "submitButton": "Create Blog Post, you will"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Demo, Click Event it is",
+    "clickMeButton": "Click me, you must!",
+    "count": "Count, it is",
+    "ifSwitchTitle": "Demo, if and switch it is",
+    "countGreater": "Greater than 5, the count is!",
+    "keepClicking": "Clicking, keep you must!",
+    "optionOne": "Selected, Option One is",
+    "optionTwo": "Selected, Option Two is",
+    "otherOption": "Selected, Other option is",
+    "selectOptionLabel": "Select Option, you must",
+    "forTitle": "For Demo, it is",
+    "ngClassTitle": "Demo, NGClass it is",
+    "ngClassText": "Changes color, this text does",
+    "toggleColorButton": "Toggle Color, you will",
+    "ngStyleTitle": "Demo, NGStyle it is",
+    "ngStyleText": "Grows with clicks on \"Click me!\", this text does",
+    "ngModelTitle": "Demo, NGModel it is",
+    "ngModelLabel": "Enter text, you must",
+    "ngModelPlaceholder": "Type something, you will",
+    "youTyped": "Typed, you have"
+  },
+  "loginPage": {
+    "title": "Login, it is",
+    "loginAnonymously": "Login Anonymously, you will",
+    "loginWithGoogle": "Login with Google, you must",
+    "divider": "or, it is",
+    "form": {
+      "emailLabel": "Email, it is",
+      "emailPlaceholder": "Enter your email, you must",
+      "emailRequired": "Required, the email is.",
+      "passwordLabel": "Password, it is",
+      "passwordPlaceholder": "Enter your password, you must",
+      "passwordRequired": "Required, the password is.",
+      "submitButton": "Login, you will"
+    },
+    "registerPrompt": "An account, have you not? Register, you must"
+  },
+  "registrationPage": {
+    "title": "Register, you will",
+    "form": {
+      "emailLabel": "Email, it is",
+      "emailPlaceholder": "Ex. pat@example.com, it is",
+      "emailInvalid": "A valid email address, enter you must.",
+      "emailRequired": "Required, the email is.",
+      "passwordLabel": "Password, it is",
+      "passwordPlaceholder": "Enter your password, you must",
+      "passwordRequired": "Required, the password is.",
+      "passwordInvalid": "At least 8 characters long, the password must be, include at least one uppercase letter, one lowercase letter, one special character, and no spaces.",
+      "confirmPasswordLabel": "Confirm Password, you must",
+      "confirmPasswordPlaceholder": "Confirm your password, you will",
+      "passwordMismatch": "Do not match, passwords do."
+    },
+    "submitButton": "Register, you will"
+  },
+  "profilePage": {
+    "noProfile": "Found, Profile not.",
+    "email": "Email, it is",
+    "description": "Description, it is",
+    "joined": "Joined, I have",
+    "roles": "Roles, it is",
+    "profileId": "ProfileID / UserUID, it is"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Captain Lucas's Blog",
+    "home": "Home Port",
+    "demo": "Demo",
+    "createPostTooltip": "Log in to craft a blog post, matey!",
+    "login": "Login",
+    "logout": "Walk the Plank",
+    "profile": "Crew Profile",
+    "language": "Lingo"
+  },
+  "blogCard": {
+    "category": "Treasure Type",
+    "user": "Buccaneer"
+  },
+  "errorPage": {
+    "title": "Arrr! Something be amiss.",
+    "message": "We be workin' to fix the issue. Please try again later, savvy?",
+    "goHome": "Set sail back to Home Port"
+  },
+  "blogDetail": {
+    "category": "Treasure Type",
+    "likes": "Cheers",
+    "publishedDate": "Date of Publication"
+  },
+  "blogOverview": {
+    "loading": "Blogs be loadin'... Please be patient.",
+    "error": "A scallywag error occurred. Please try again later, matey.",
+    "noBlogs": "No blogs found, arrr."
+  },
+  "createBlog": {
+    "title": "Craft a New Blog Post",
+    "form": {
+      "titleLabel": "Title",
+      "titlePlaceholder": "Enter the title of yer blog",
+      "titleRequired": "Title be required, matey.",
+      "titleMinLength": "Title must be at least 5 characters long, savvy.",
+      "contentLabel": "Content",
+      "contentPlaceholder": "Enter the content of yer blog",
+      "contentRequired": "Content be required, arrr.",
+      "contentMinLength": "Content must be at least 5 characters long, matey.",
+      "imageLabel": "Image (Optional)",
+      "submitButton": "Craft Blog Post"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Click Event Demo",
+    "clickMeButton": "Click me, ye scallywag!",
+    "count": "Count",
+    "ifSwitchTitle": "If and Switch Demo",
+    "countGreater": "Count be greater than 5, arrr!",
+    "keepClicking": "Keep clickin', matey!",
+    "optionOne": "Option One selected, savvy?",
+    "optionTwo": "Option Two selected, aye!",
+    "otherOption": "Other option selected, arrr.",
+    "selectOptionLabel": "Select Option",
+    "forTitle": "for Demo",
+    "ngClassTitle": "NGClass Demo",
+    "ngClassText": "This text be changin' color, matey!",
+    "toggleColorButton": "Toggle Color",
+    "ngStyleTitle": "NGStyle Demo",
+    "ngStyleText": "This text grows with clicks on \"Click me, ye scallywag!\"",
+    "ngModelTitle": "NGModel Demo",
+    "ngModelLabel": "Enter text, matey!",
+    "ngModelPlaceholder": "Type somethin', savvy?",
+    "youTyped": "Ye typed"
+  },
+  "loginPage": {
+    "title": "Login",
+    "loginAnonymously": "Login Anonymously, arrr!",
+    "loginWithGoogle": "Login with Google, matey!",
+    "divider": "or",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter yer email, savvy",
+      "emailRequired": "Email be required, matey.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter yer password, arrr.",
+      "passwordRequired": "Password be required, savvy.",
+      "submitButton": "Login"
+    },
+    "registerPrompt": "Don't have an account? Register, matey!"
+  },
+  "registrationPage": {
+    "title": "Register",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Ex. pat@example.com",
+      "emailInvalid": "Please enter a valid email address, savvy.",
+      "emailRequired": "Email be required, matey.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter yer password, arrr.",
+      "passwordRequired": "Password be required, matey.",
+      "passwordInvalid": "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one special character, and no spaces, savvy.",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm yer password, matey!",
+      "passwordMismatch": "Passwords do not match, arrr."
+    },
+    "submitButton": "Register"
+  },
+  "profilePage": {
+    "noProfile": "Profile not found, matey.",
+    "email": "Email",
+    "description": "Description",
+    "joined": "Joined the Crew",
+    "roles": "Roles",
+    "profileId": "ProfileID / UserUID"
+  }
+}

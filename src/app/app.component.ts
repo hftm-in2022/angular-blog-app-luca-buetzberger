@@ -4,6 +4,7 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { LoadingBarService } from './core/services/loading-bar.service';
 import { LoadingBarComponent } from './shared/loading-bar/loading-bar.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
@@ -16,7 +17,12 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private loadingBarService: LoadingBarService,
-  ) {}
+    private translate: TranslateService,
+  ) {
+    // Initialize the default language
+    this.translate.setDefaultLang('en'); // Default language
+    this.translate.use('en'); // Language to use
+  }
 
   ngOnInit(): void {
     // Listen to router events to control the loading bar
@@ -29,5 +35,10 @@ export class AppComponent implements OnInit {
         this.loadingBarService.hide();
       }
     });
+  }
+
+  // Method to switch languages
+  switchLanguage(lang: string): void {
+    this.translate.use(lang);
   }
 }

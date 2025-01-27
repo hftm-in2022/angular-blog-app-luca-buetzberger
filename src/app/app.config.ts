@@ -12,6 +12,10 @@ import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { GlobalErrorHandler } from './core/services/global-error-handler';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { provideHttpClient, HttpClient } from '@angular/common/http';
+import { HttpLoaderFactory } from './app.translate-loader';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -24,5 +28,14 @@ export const appConfig: ApplicationConfig = {
     provideStorage(() => getStorage()),
     provideAnimationsAsync(),
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    provideHttpClient(),
+    // Spread the providers from TranslateModule.forRoot()
+    ...TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }).providers!,
   ],
 };

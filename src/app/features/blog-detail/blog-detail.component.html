@@ -9,11 +9,9 @@
   </div>
 
   <div class="meta-card">
-    <div class="meta-item">Category: {{ blog.category }}</div>
-    <div class="meta-item">Likes: {{ blog.likes }}</div>
-    <div class="meta-item">
-      Published Date: {{ blog.publishedDate | date: "medium" }}
-    </div>
+    <div class="meta-item">{{ 'blogDetail.category' | translate }}: {{ blog.category }}</div>
+    <div class="meta-item">{{ 'blogDetail.likes' | translate }}: {{ blog.likes }}</div>
+    <div class="meta-item">{{ 'blogDetail.publishedDate' | translate }}: {{ blog.publishedDate | date: 'medium' }}</div>
   </div>
 
   <hr class="divider" />
