@@ -6,12 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogPost } from '../../core/models/blogpost.model';
 import { Profile } from '../../core/models/profile.model';
 import { CommonModule } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.scss',
 })

@@ -17,5 +17,10 @@
     "title": "Oops! Something went wrong.",
     "message": "We're working to fix the issue. Please try again later.",
     "goHome": "Go back to Home"
+  }, 
+  "blogDetail": {
+    "category": "Category",
+    "likes": "Likes",
+    "publishedDate": "Published Date"
   }
 }
