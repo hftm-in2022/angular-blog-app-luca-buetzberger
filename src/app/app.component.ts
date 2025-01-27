@@ -4,12 +4,13 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { LoadingBarService } from './core/services/loading-bar.service';
 import { LoadingBarComponent } from './shared/loading-bar/loading-bar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [RouterOutlet, ToolbarComponent, LoadingBarComponent],
+  imports: [RouterOutlet, ToolbarComponent, LoadingBarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
