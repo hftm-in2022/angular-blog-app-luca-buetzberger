@@ -12,5 +12,10 @@
       "english": "English",
       "german": "German"
     }
+  }, 
+  "errorPage": {
+    "title": "Oops! Something went wrong.",
+    "message": "We're working to fix the issue. Please try again later.",
+    "goHome": "Go back to Home"
   }
 }

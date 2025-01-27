@@ -1,0 +1,16 @@
+{
+  "toolbar": {
+    "title": "Lucas Blog",
+    "home": "Startseite",
+    "demo": "Demo",
+    "createPostTooltip": "Melden Sie sich an, um einen Blogbeitrag zu erstellen",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "language": {
+      "label": "Sprache",
+      "english": "Englisch",
+      "german": "Deutsch"
+    }
+  }
+}
