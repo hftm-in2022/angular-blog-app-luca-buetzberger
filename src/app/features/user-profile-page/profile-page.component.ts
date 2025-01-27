@@ -28,6 +28,6 @@ export class ProfilePageComponent implements OnInit {
 
   onImageError(event: Event): void {
     const target = event.target as HTMLImageElement;
-    target.src = 'profile_avatar-placeholder.png'; // Fallback image
+    target.src = './assets/images/profile_avatar-placeholder.png'; // Fallback image
   }
 }

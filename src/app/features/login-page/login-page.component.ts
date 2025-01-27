@@ -9,11 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { FirebaseError } from '@angular/fire/app';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, TranslateModule],
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
