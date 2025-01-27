@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Lucas Blog",
+    "home": "Startsite",
+    "demo": "Demo",
+    "createPostTooltip": "Logg di ii, um e Blog-Post z mache",
+    "login": "Aamälde",
+    "logout": "Abmälde",
+    "profile": "Profil",
+    "language": "Sproch"
+  },
+  "blogCard": {
+    "category": "Kategorie",
+    "user": "Benutzer"
+  },
+  "errorPage": {
+    "title": "Upps! Öppis isch schief gloffe.",
+    "message": "Mir schaffed dra, s Problem z löse. Bitte versuech's spöter nomol.",
+    "goHome": "Zrugg zur Startsite"
+  },
+  "blogDetail": {
+    "category": "Kategorie",
+    "likes": "Gefällt mir",
+    "publishedDate": "Veröffentlichigsdatum"
+  },
+  "blogOverview": {
+    "loading": "Blogs wärde glade... Bitte wart e chli.",
+    "error": "Es isch e Fehler passiert. Bitte versuech's spöter nomol.",
+    "noBlogs": "Kei Blogs gfunde."
+  },
+  "createBlog": {
+    "title": "E neue Blog-Post erstelle",
+    "form": {
+      "titleLabel": "Titel",
+      "titlePlaceholder": "Gib de Blog-Titel ii",
+      "titleRequired": "Titel isch obligatorisch.",
+      "titleMinLength": "De Titel muess mind. 5 Zeichä lang sii.",
+      "contentLabel": "Inhalt",
+      "contentPlaceholder": "Gib de Blog-Inhalt ii",
+      "contentRequired": "Inhalt isch obligatorisch.",
+      "contentMinLength": "De Inhalt muess mind. 5 Zeichä lang sii.",
+      "imageLabel": "Bild (Optional)",
+      "submitButton": "Blog-Post erstelle"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Click-Event-Demo",
+    "clickMeButton": "Drück mi!",
+    "count": "Zähler",
+    "ifSwitchTitle": "if- und switch-Demo",
+    "countGreater": "Zähler isch grösser als 5!",
+    "keepClicking": "Mach wiiter!",
+    "optionOne": "Option Eins usgwehlt",
+    "optionTwo": "Option Zwei usgwehlt",
+    "otherOption": "Anderi Option usgwehlt",
+    "selectOptionLabel": "Wähl e Option",
+    "forTitle": "for-Demo",
+    "ngClassTitle": "NGClass-Demo",
+    "ngClassText": "Dä Text wechselt d'Farb",
+    "toggleColorButton": "Farb ändere",
+    "ngStyleTitle": "NGStyle-Demo",
+    "ngStyleText": "Dä Text wird grösser, wenn du \"Drück mi!\" drücksch",
+    "ngModelTitle": "NGModel-Demo",
+    "ngModelLabel": "Text iiä",
+    "ngModelPlaceholder": "Schriib öppis",
+    "youTyped": "Du hesch gschriibe"
+  },
+  "loginPage": {
+    "title": "Aamälde",
+    "loginAnonymously": "Anonym aamälde",
+    "loginWithGoogle": "Mit Google aamälde",
+    "divider": "oder",
+    "form": {
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "Gib dini E-Mail ii",
+      "emailRequired": "E-Mail isch obligatorisch.",
+      "passwordLabel": "Passwort",
+      "passwordPlaceholder": "Gib dis Passwort ii",
+      "passwordRequired": "Passwort isch obligatorisch.",
+      "submitButton": "Aamälde"
+    },
+    "registerPrompt": "Hesch no kei Konto? Registriere"
+  },
+  "registrationPage": {
+    "title": "Registriere",
+    "form": {
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "Z. B. pat@example.com",
+      "emailInvalid": "Bitte gib e gültigi E-Mail-Adräss ii.",
+      "emailRequired": "E-Mail isch obligatorisch.",
+      "passwordLabel": "Passwort",
+      "passwordPlaceholder": "Gib dis Passwort ii",
+      "passwordRequired": "Passwort isch obligatorisch.",
+      "passwordInvalid": "D'Passwort muess mind. 8 Zeichä lang sii, e Grossbuchstab, e Chliibuchstab, e Spezialzeichä enthalte und kei Lärä enthalte.",
+      "confirmPasswordLabel": "Passwort bestätige",
+      "confirmPasswordPlaceholder": "Bestätig dis Passwort",
+      "passwordMismatch": "D'Passwörter stimmed nöd überei."
+    },
+    "submitButton": "Registriere"
+  },
+  "profilePage": {
+    "noProfile": "Profil nöd gfunde.",
+    "email": "E-Mail",
+    "description": "Beschrieb",
+    "joined": "Dazugstosse",
+    "roles": "Rolle",
+    "profileId": "Profil-ID / Benutzer-UID"
+  }
+}
