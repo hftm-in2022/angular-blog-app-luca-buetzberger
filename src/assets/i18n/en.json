@@ -64,5 +64,21 @@
     "ngModelLabel": "Enter text",
     "ngModelPlaceholder": "Type something",
     "youTyped": "You typed"
+  }, 
+  "loginPage": {
+    "title": "Login",
+    "loginAnonymously": "Login Anonymously",
+    "loginWithGoogle": "Login with Google",
+    "divider": "or",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "emailRequired": "Email is required.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordRequired": "Password is required.",
+      "submitButton": "Login"
+    },
+    "registerPrompt": "Don't have an account? Register"
   }
 }
