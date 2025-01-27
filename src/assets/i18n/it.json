@@ -1,0 +1,109 @@
+{
+  "toolbar": {
+    "title": "Lucas Blog Online",
+    "home": "Home",
+    "demo": "Demo",
+    "createPostTooltip": "Accedi per creare un post sul blog",
+    "login": "Accedi",
+    "logout": "Esci",
+    "profile": "Profilo",
+    "language": "Lingua"
+  },
+  "blogCard": {
+    "category": "Categoria",
+    "user": "Utente"
+  },
+  "errorPage": {
+    "title": "Ops! Qualcosa è andato storto.",
+    "message": "Stiamo lavorando per risolvere il problema. Per favore riprova più tardi.",
+    "goHome": "Torna alla Home"
+  },
+  "blogDetail": {
+    "category": "Categoria",
+    "likes": "Mi piace",
+    "publishedDate": "Data di pubblicazione"
+  },
+  "blogOverview": {
+    "loading": "Caricamento dei blog... Attendere prego.",
+    "error": "Si è verificato un errore. Per favore riprova più tardi.",
+    "noBlogs": "Nessun blog trovato."
+  },
+  "createBlog": {
+    "title": "Crea un nuovo post sul blog",
+    "form": {
+      "titleLabel": "Titolo",
+      "titlePlaceholder": "Inserisci il titolo del blog",
+      "titleRequired": "Il titolo è obbligatorio.",
+      "titleMinLength": "Il titolo deve contenere almeno 5 caratteri.",
+      "contentLabel": "Contenuto",
+      "contentPlaceholder": "Inserisci il contenuto del blog",
+      "contentRequired": "Il contenuto è obbligatorio.",
+      "contentMinLength": "Il contenuto deve contenere almeno 5 caratteri.",
+      "imageLabel": "Immagine (Opzionale)",
+      "submitButton": "Crea post sul blog"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Demo di evento clic",
+    "clickMeButton": "Cliccami!",
+    "count": "Conteggio",
+    "ifSwitchTitle": "Demo di if e switch",
+    "countGreater": "Il conteggio è maggiore di 5!",
+    "keepClicking": "Continua a cliccare!",
+    "optionOne": "Opzione Uno selezionata",
+    "optionTwo": "Opzione Due selezionata",
+    "otherOption": "Altra opzione selezionata",
+    "selectOptionLabel": "Seleziona un'opzione",
+    "forTitle": "Demo di for",
+    "ngClassTitle": "Demo di NGClass",
+    "ngClassText": "Questo testo cambia colore",
+    "toggleColorButton": "Cambia colore",
+    "ngStyleTitle": "Demo di NGStyle",
+    "ngStyleText": "Questo testo cresce con i clic su \"Cliccami!\"",
+    "ngModelTitle": "Demo di NGModel",
+    "ngModelLabel": "Inserisci testo",
+    "ngModelPlaceholder": "Scrivi qualcosa",
+    "youTyped": "Hai scritto"
+  },
+  "loginPage": {
+    "title": "Accedi",
+    "loginAnonymously": "Accedi in modo anonimo",
+    "loginWithGoogle": "Accedi con Google",
+    "divider": "oppure",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Inserisci la tua email",
+      "emailRequired": "L'email è obbligatoria.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Inserisci la tua password",
+      "passwordRequired": "La password è obbligatoria.",
+      "submitButton": "Accedi"
+    },
+    "registerPrompt": "Non hai un account? Registrati"
+  },
+  "registrationPage": {
+    "title": "Registrati",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Es. pat@example.com",
+      "emailInvalid": "Per favore inserisci un indirizzo email valido.",
+      "emailRequired": "L'email è obbligatoria.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Inserisci la tua password",
+      "passwordRequired": "La password è obbligatoria.",
+      "passwordInvalid": "La password deve contenere almeno 8 caratteri, includere almeno una lettera maiuscola, una minuscola, un carattere speciale e non contenere spazi.",
+      "confirmPasswordLabel": "Conferma Password",
+      "confirmPasswordPlaceholder": "Conferma la tua password",
+      "passwordMismatch": "Le password non corrispondono."
+    },
+    "submitButton": "Registrati"
+  },
+  "profilePage": {
+    "noProfile": "Profilo non trovato.",
+    "email": "Email",
+    "description": "Descrizione",
+    "joined": "Iscritto",
+    "roles": "Ruoli",
+    "profileId": "ID Profilo / UID Utente"
+  }
+}
