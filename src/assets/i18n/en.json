@@ -27,5 +27,20 @@
     "loading": "Blogs are loading... Please wait.",
     "error": "An error occurred. Please try again later.",
     "noBlogs": "No blogs found."
+  }, 
+  "createBlog": {
+    "title": "Create a New Blog Post",
+    "form": {
+      "titleLabel": "Title",
+      "titlePlaceholder": "Enter the blog title",
+      "titleRequired": "Title is required.",
+      "titleMinLength": "Title must be at least 5 characters long.",
+      "contentLabel": "Content",
+      "contentPlaceholder": "Enter the blog content",
+      "contentRequired": "Content is required.",
+      "contentMinLength": "Content must be at least 5 characters long.",
+      "imageLabel": "Image (Optional)",
+      "submitButton": "Create Blog Post"
+    }
   }
 }
