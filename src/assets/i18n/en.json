@@ -22,5 +22,10 @@
     "category": "Category",
     "likes": "Likes",
     "publishedDate": "Published Date"
+  }, 
+  "blogOverview": {
+    "loading": "Blogs are loading... Please wait.",
+    "error": "An error occurred. Please try again later.",
+    "noBlogs": "No blogs found."
   }
 }

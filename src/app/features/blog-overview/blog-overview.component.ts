@@ -12,11 +12,12 @@ import { BlogPost } from '../../core/models/blogpost.model';
 import { ActivatedRoute, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterModule } from '@angular/router';
 import { BlogCardComponent } from '../../shared/blog-card/blog-card.component';
 import { Subscription } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-overview',
   standalone: true,
-  imports: [CommonModule, RouterModule, BlogCardComponent],
+  imports: [CommonModule, RouterModule, BlogCardComponent, TranslateModule],
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],
 })
