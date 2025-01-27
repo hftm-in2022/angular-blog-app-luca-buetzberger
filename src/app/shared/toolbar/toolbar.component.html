@@ -56,9 +56,17 @@
 
     <!-- Language Dropdown -->
     <mat-menu #languageMenu="matMenu">
-      <button mat-menu-item (click)="switchLanguage('en')">🇬🇧 English</button>
+      <button mat-menu-item (click)="switchLanguage('en')">🇺🇸 English</button>
       <button mat-menu-item (click)="switchLanguage('de')">🇩🇪 Deutsch</button>
       <button mat-menu-item (click)="switchLanguage('fr')">🇫🇷 Français</button>
+      <button mat-menu-item (click)="switchLanguage('it')">🇮🇹 Italiano</button>
+      <button mat-menu-item (click)="switchLanguage('es')">🇪🇸 Español</button>
+      <button mat-menu-item (click)="switchLanguage('de_ch')">🇨🇭 Schwiizerdütsch</button>
+      <button mat-menu-item (click)="switchLanguage('hexadecimal')">🤖 Hexadecimal</button>
+      <button mat-menu-item (click)="switchLanguage('morse')">➗ Morse Code</button>
+      <button mat-menu-item (click)="switchLanguage('en_pirate')">🏴‍☠️ Pirate English</button>
+      <button mat-menu-item (click)="switchLanguage('en_doge')">🐶 Doge English</button>
+      <button mat-menu-item (click)="switchLanguage('en_yoda')">👽 Yoda English</button>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="languageMenu">🌐 {{ 'toolbar.language' | translate }}</button>
   </div>
