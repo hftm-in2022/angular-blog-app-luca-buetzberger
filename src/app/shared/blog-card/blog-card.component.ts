@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { BlogPost } from '../../core/models/blogpost.model';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatIconModule, TranslateModule],
   templateUrl: './blog-card.component.html',
   styleUrls: ['./blog-card.component.scss'],
 })

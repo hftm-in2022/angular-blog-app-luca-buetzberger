@@ -2,11 +2,11 @@
 
 <mat-card class="blog-card" (click)="onCardClick()">
   <!-- Blog Image -->
-  @if (blog.imageURL) {
+  <ng-container *ngIf="blog.imageURL">
     <div class="image-container">
       <img [src]="blog.imageURL" alt="Blog image" />
     </div>
-  }
+  </ng-container>
 
   <!-- Blog Title -->
   <mat-card-title class="blog-title">{{ blog.title }}</mat-card-title>
@@ -16,7 +16,7 @@
     <div class="blog-metadata">
       <!-- Category -->
       <div class="blog-category">
-        Category: <span class="category">{{ blog.category }}</span>
+        {{ 'blogCard.category' | translate }}: <span class="category">{{ blog.category }}</span>
       </div>
 
       <!-- Creation Date -->
@@ -26,7 +26,7 @@
 
       <!-- User Info -->
       <div class="blog-user">
-        <span class="user-id">User: {{ blog.userUID }}</span>
+        <span class="user-id">{{ 'blogCard.user' | translate }}: {{ blog.userUID }}</span>
       </div>
     </div>
   </mat-card-content>
