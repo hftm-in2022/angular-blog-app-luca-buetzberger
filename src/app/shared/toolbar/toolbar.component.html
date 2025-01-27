@@ -4,14 +4,14 @@
   <!-- Left Section: Logo and Title -->
   <div class="logo">
     <!-- <img src="logo-AppertureScience.png" alt="Lucas Blog Logo" /> -->
-    <h4>Lucas Blog</h4>
+    <h4>{{ 'toolbar.title' | translate }}</h4>
   </div>
 
   <!-- Right Section: Links and Buttons -->
   <div class="right-section">
     <!-- Navigation Links -->
-    <a routerLink="/" class="nav-link">Home</a>
-    <a routerLink="/demo" class="nav-link">Demo</a>
+    <a routerLink="/" class="nav-link">{{ 'toolbar.home' | translate }}</a>
+    <a routerLink="/demo" class="nav-link">{{ 'toolbar.demo' | translate }}</a>
 
     <!-- Divider Line -->
     <div class="divider"></div>
@@ -21,7 +21,7 @@
       class="create-post-button"
       [disabled]="(user$ | async) === null"
       [routerLink]="['/createBlog']"
-      matTooltip="Log in to create a blog post"
+      matTooltip="{{ 'toolbar.createPostTooltip' | translate }}"
       [matTooltipDisabled]="(user$ | async) !== null"
       aria-label="Create Blog Post"
     >
@@ -32,7 +32,14 @@
     <div class="divider"></div>
 
     <!-- Profile Avatar -->
-    @if (user$ | async) {
+    <!-- @if (user$ | async) {
+    <img [src]="(profile$ | async)?.avatarURL || 'profile_avatar-placeholder.png'" alt="User avatar"
+      class="profile-avatar" (click)="goToProfile()" (keydown.enter)="goToProfile()" tabindex="1" />
+    <button (click)="logout()">Logout</button>
+    } @else {
+    <button (click)="openLoginModal()">Login</button>
+    } -->
+    <ng-container *ngIf="user$ | async as user; else loginButton">
       <img
         [src]="(profile$ | async)?.avatarURL || 'profile_avatar-placeholder.png'"
         alt="User avatar"
@@ -41,10 +48,18 @@
         (keydown.enter)="goToProfile()"
         tabindex="1"
       />
-      <button (click)="logout()">Logout</button>
-    } @else {
-      <button (click)="openLoginModal()">Login</button>
-    }
+      <button (click)="logout()">{{ 'toolbar.logout' | translate }}</button>
+    </ng-container>
+    <ng-template #loginButton>
+      <button (click)="openLoginModal()">{{ 'toolbar.login' | translate }}</button>
+    </ng-template>
+
+    <!-- Language Dropdown -->
+    <mat-menu #languageMenu="matMenu">
+      <button mat-menu-item (click)="switchLanguage('en')">🇬🇧 {{ 'toolbar.language.english' | translate }}</button>
+      <button mat-menu-item (click)="switchLanguage('de')">🇩🇪 {{ 'toolbar.language.german' | translate }}</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="languageMenu">🌐 {{ 'toolbar.language.label' | translate }}</button>
   </div>
 </nav>
 

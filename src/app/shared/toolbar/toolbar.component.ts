@@ -17,11 +17,14 @@ import { LoginPageComponent } from '../../features/login-page/login-page.compone
 import { Observable } from 'rxjs';
 import { Profile } from '../../core/models/profile.model';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [RouterModule, CommonModule, MatTooltipModule, LoginPageComponent],
+  imports: [RouterModule, CommonModule, MatTooltipModule, MatMenuModule, LoginPageComponent, TranslateModule],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })
@@ -34,6 +37,7 @@ export class ToolbarComponent {
     private authService: AuthenticationService,
     private profileService: ProfileService,
     private router: Router,
+    private translate: TranslateService,
   ) {
     this.user$ = this.authService.user$; // Subscribe to the user observable
     this.profile$ = this.profileService.profile$; // Subscribe to the profile observable
@@ -67,5 +71,11 @@ export class ToolbarComponent {
         console.warn('ToolbarComponent: No user is logged in. Cannot navigate to profile.');
       }
     });
+  }
+
+  // Switches the language dynamically.
+  switchLanguage(lang: string) {
+    console.log(`ToolbarComponent: Switching language to ${lang}`);
+    this.translate.use(lang);
   }
 }
