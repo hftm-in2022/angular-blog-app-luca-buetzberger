@@ -42,5 +42,27 @@
       "imageLabel": "Image (Optional)",
       "submitButton": "Create Blog Post"
     }
+  }, 
+  "demo": {
+    "clickEventTitle": "Click Event Demo",
+    "clickMeButton": "Click me!",
+    "count": "Count",
+    "ifSwitchTitle": "if and switch Demo",
+    "countGreater": "Count is greater than 5!",
+    "keepClicking": "Keep clicking!",
+    "optionOne": "Option One selected",
+    "optionTwo": "Option Two selected",
+    "otherOption": "Other option selected",
+    "selectOptionLabel": "Select Option",
+    "forTitle": "for Demo",
+    "ngClassTitle": "NGClass Demo",
+    "ngClassText": "This text changes color",
+    "toggleColorButton": "Toggle Color",
+    "ngStyleTitle": "NGStyle Demo",
+    "ngStyleText": "This text grows with clicks on \"Click me!\"",
+    "ngModelTitle": "NGModel Demo",
+    "ngModelLabel": "Enter text",
+    "ngModelPlaceholder": "Type something",
+    "youTyped": "You typed"
   }
 }
