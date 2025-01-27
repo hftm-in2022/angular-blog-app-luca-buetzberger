@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -11,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, MatButtonModule, MatInputModule, MatSelectModule, MatCardModule, CommonModule, TranslateModule],
+  imports: [FormsModule, MatButtonModule, MatInputModule, MatSelectModule, MatCardModule, CommonModule, TranslateModule],
   templateUrl: './demo-page.component.html',
   styleUrl: './demo-page.component.scss',
 })
