@@ -80,5 +80,22 @@
       "submitButton": "Login"
     },
     "registerPrompt": "Don't have an account? Register"
+  }, 
+  "registrationPage": {
+    "title": "Register",
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Ex. pat@example.com",
+      "emailInvalid": "Please enter a valid email address.",
+      "emailRequired": "Email is required.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordRequired": "Password is required.",
+      "passwordInvalid": "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one special character, and no spaces.",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "passwordMismatch": "Passwords do not match."
+    },
+    "submitButton": "Register"
   }
 }

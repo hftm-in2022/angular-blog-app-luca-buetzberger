@@ -8,11 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from '../../core/services/authentication.service';
 import { FirebaseError } from '@angular/fire/app';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-modal',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss'],
 })
