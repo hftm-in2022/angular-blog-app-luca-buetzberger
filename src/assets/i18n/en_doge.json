@@ -1,0 +1,110 @@
+
+{
+  "toolbar": {
+    "title": "Lucas Blog, very wow",
+    "home": "Home, much comfy",
+    "demo": "Demo, such fun",
+    "createPostTooltip": "Log in to create a blog post, very important",
+    "login": "Login, much excite",
+    "logout": "Logout, so sad",
+    "profile": "Profile, very nice",
+    "language": "Language, much choice"
+  },
+  "blogCard": {
+    "category": "Category, wow",
+    "user": "User, such cool"
+  },
+  "errorPage": {
+    "title": "Oops! Such wrong.",
+    "message": "We’re working to fix the issue, much try again later.",
+    "goHome": "Go back to Home, very safe"
+  },
+  "blogDetail": {
+    "category": "Category, wow",
+    "likes": "Likes, many",
+    "publishedDate": "Published Date, much wow"
+  },
+  "blogOverview": {
+    "loading": "Blogs are loading... Please wait, much patience.",
+    "error": "An error occurred, very sad. Please try again later.",
+    "noBlogs": "No blogs found, so empty."
+  },
+  "createBlog": {
+    "title": "Create a New Blog Post, wow",
+    "form": {
+      "titleLabel": "Title, very important",
+      "titlePlaceholder": "Enter the blog title, much wow",
+      "titleRequired": "Title is required, much needed.",
+      "titleMinLength": "Title must be at least 5 characters long, wow.",
+      "contentLabel": "Content, much info",
+      "contentPlaceholder": "Enter the blog content, very nice",
+      "contentRequired": "Content is required, much needed.",
+      "contentMinLength": "Content must be at least 5 characters long, wow.",
+      "imageLabel": "Image (Optional), much choice",
+      "submitButton": "Create Blog Post, very good"
+    }
+  },
+  "demo": {
+    "clickEventTitle": "Click Event Demo, much fun",
+    "clickMeButton": "Click me, wow!",
+    "count": "Count, many",
+    "ifSwitchTitle": "if and switch Demo, much logic",
+    "countGreater": "Count is greater than 5, wow!",
+    "keepClicking": "Keep clicking, much fun!",
+    "optionOne": "Option One selected, very nice",
+    "optionTwo": "Option Two selected, much wow",
+    "otherOption": "Other option selected, so cool",
+    "selectOptionLabel": "Select Option, much choice",
+    "forTitle": "for Demo, much learning",
+    "ngClassTitle": "NGClass Demo, very cool",
+    "ngClassText": "This text changes color, wow",
+    "toggleColorButton": "Toggle Color, much fun",
+    "ngStyleTitle": "NGStyle Demo, very nice",
+    "ngStyleText": "This text grows with clicks on \"Click me!\", much wow",
+    "ngModelTitle": "NGModel Demo, very cool",
+    "ngModelLabel": "Enter text, much wow",
+    "ngModelPlaceholder": "Type something, very good",
+    "youTyped": "You typed, much wow"
+  },
+  "loginPage": {
+    "title": "Login, much needed",
+    "loginAnonymously": "Login Anonymously, very sneaky",
+    "loginWithGoogle": "Login with Google, much easy",
+    "divider": "or, much choice",
+    "form": {
+      "emailLabel": "Email, very important",
+      "emailPlaceholder": "Enter your email, much wow",
+      "emailRequired": "Email is required, much needed.",
+      "passwordLabel": "Password, very secret",
+      "passwordPlaceholder": "Enter your password, much wow",
+      "passwordRequired": "Password is required, much needed.",
+      "submitButton": "Login, much needed"
+    },
+    "registerPrompt": "Don't have an account? Register, much wow"
+  },
+  "registrationPage": {
+    "title": "Register, much needed",
+    "form": {
+      "emailLabel": "Email, very important",
+      "emailPlaceholder": "Ex. pat@example.com, much wow",
+      "emailInvalid": "Please enter a valid email address, much needed.",
+      "emailRequired": "Email is required, much needed.",
+      "passwordLabel": "Password, very secret",
+      "passwordPlaceholder": "Enter your password, much wow",
+      "passwordRequired": "Password is required, much needed.",
+      "passwordInvalid": "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one special character, and no spaces, much wow.",
+      "confirmPasswordLabel": "Confirm Password, very important",
+      "confirmPasswordPlaceholder": "Confirm your password, much wow",
+      "passwordMismatch": "Passwords do not match, very sad."
+    },
+    "submitButton": "Register, much needed"
+  },
+  "profilePage": {
+    "noProfile": "Profile not found, so sad.",
+    "email": "Email, very important",
+    "description": "Description, much info",
+    "joined": "Joined, much wow",
+    "roles": "Roles, very important",
+    "profileId": "ProfileID / UserUID, much wow"
+  }
+}
