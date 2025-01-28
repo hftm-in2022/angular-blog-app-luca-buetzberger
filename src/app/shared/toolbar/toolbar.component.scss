@@ -1,50 +1,50 @@
 // src\app\shared\toolbar\toolbar.component.scss
 
+@import 'variables';
+
 /* Navigation Bar */
 nav {
-  position: fixed; /* Fixes the toolbar at the top */
-  top: 0; /* Aligns it to the top of the viewport */
-  left: 0; /* Aligns it to the left of the viewport */
-  right: 0; /* Ensures it stretches across the full width */
-  z-index: 1000; /* Ensures it stays above other content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Ensures vertical centering */
-  background-color: #2a4a75; /* Slightly lighter matte blue */
-  padding: 10px 20px;
-  color: white;
+  align-items: center;
+  background-color: $background-color;
+  border-color: $primary-color;
+  box-shadow: 0 0 5px $primary-color;
 }
 
 /* Left Section: Logo and Title */
 .logo {
   display: flex;
-  align-items: center; /* Centers the title vertically */
-  gap: 10px; /* Adds spacing between the logo and the title */
+  align-items: center;
 
   img {
-    height: 40px;
+    height: 3rem;
   }
+}
 
-  p {
-    font-size: 1.2rem;
-    color: white;
-  }
+p {
+  font-size: $font-size-large;
 }
 
 /* Right Section: Links and Buttons */
 .right-section {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 
   /* Navigation Links */
   .nav-link {
     text-decoration: none;
-    color: white;
-    font-size: 0.9rem;
+    color: $text-color;
+    font-size: $font-size-small;
 
     &:hover {
-      color: #4caf50;
+      color: $secondary-color;
     }
   }
 
@@ -52,27 +52,27 @@ nav {
   .divider {
     height: 30px;
     width: 1px;
-    background-color: white;
+    background-color: $text-color;
   }
 
   /* Create Blog Button */
   .create-post-button {
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #4caf50;
-    color: white;
-    border: none;
+    // font-size: $font-size-medium;
+    // font-weight: bold;
+    // background-color: $accent-color;
+    color: $text-color;
+    // border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: $font-size-small;
     cursor: pointer;
 
     &:hover {
-      background-color: #45a049;
+      background-color: $accent-color;
     }
 
     &:disabled {
-      background-color: #ccc;
-      color: #666;
+      background-color: $background-color-dark;
+      color: $text-color-dark;
       cursor: not-allowed;
     }
   }
@@ -83,19 +83,19 @@ nav {
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid #4caf50;
+    border: 2px solid $secondary-color;
   }
 
   /* Login/Logout Button */
   button {
     background-color: transparent;
-    color: white;
+    color: $text-color;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: $font-size-small;
 
     &:hover {
-      color: #4caf50;
+      color: $secondary-color;
     }
   }
 }

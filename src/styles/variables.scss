@@ -1,0 +1,33 @@
+// src\styles\variables.scss
+
+// Color Variables light mode
+$primary-color: #b391fe;
+$secondary-color: #d483e6;
+$accent-color: #dc64df;
+$background-color: #ffffff;
+$text-color: #0a0518;
+
+// Color Variables dark mode
+$primary-color-dark: #5c27be;
+$secondary-color-dark: #69197b;
+$accent-color-dark: #9b209d;
+$background-color-dark: #050208;
+$text-color-dark: #eae5fa;
+
+// Font Variables
+$font-size-small: 0.75rem; //0.9
+$font-size-medium: 1rem; // 1
+$font-size-large: 1.5rem; // 1.2
+
+$border-radius: 0.5rem;
+
+// NEUMORPHIC VARIABLES
+$neu-shadow-light:
+  8px 8px 16px rgba($primary-color, 0.1),
+  -8px -8px 16px rgba($secondary-color, 0.1);
+$neu-shadow-dark:
+  8px 8px 16px rgba($primary-color-dark, 0.2),
+  -8px -8px 16px rgba($secondary-color-dark, 0.2);
+$neu-inset:
+  inset 5px 5px 10px rgba($primary-color-dark, 0.1),
+  inset -5px -5px 10px rgba($secondary-color, 0.1);
