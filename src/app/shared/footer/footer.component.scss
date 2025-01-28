@@ -1,12 +1,10 @@
 // src\app\shared\footer\footer.component.scss
 
-@import 'variables';
-
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: $primary-color;
+  background-color: #2a4a75;
   color: white;
   padding: 10px;
   text-align: center;
