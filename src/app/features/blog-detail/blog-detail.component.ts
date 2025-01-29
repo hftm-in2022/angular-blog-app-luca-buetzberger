@@ -10,7 +10,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-detail',
-  standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.scss',

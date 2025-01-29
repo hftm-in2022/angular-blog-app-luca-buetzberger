@@ -23,7 +23,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-toolbar',
-  standalone: true,
   imports: [RouterModule, CommonModule, MatTooltipModule, MatMenuModule, LoginPageComponent, TranslateModule],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
