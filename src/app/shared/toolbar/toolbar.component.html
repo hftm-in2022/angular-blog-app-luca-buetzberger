@@ -1,76 +1,60 @@
 <!-- src\app\shared\toolbar\toolbar.component.html -->
 
-<nav>
-  <!-- Left Section: Logo and Title -->
-  <div class="logo">
-    <img src="assets/images/angular_full_color_logo.svg" alt="Lucas Blog Logo" />
-    <p class="title">{{ 'toolbar.title' | translate }}</p>
+<mat-toolbar color="primary">
+  <!-- Left Section -->
+  <div class="toolbar-left">
+    <img src="assets/images/angular_full_color_logo.svg" alt="Logo" class="logo" />
+    <span class="title">{{ 'toolbar.title' | translate }}</span>
   </div>
 
-  <!-- Right Section: Links and Buttons -->
-  <div class="right-section">
+  <!-- Right Section -->
+  <div class="toolbar-right">
     <!-- Navigation Links -->
-    <a routerLink="/" class="nav-link">{{ 'toolbar.home' | translate }}</a>
-    <a routerLink="/demo" class="nav-link">{{ 'toolbar.demo' | translate }}</a>
-
-    <!-- Divider Line -->
-    <div class="divider"></div>
-
-    <!-- Create Blog Button -->
-    <button
-      class="create-post-button"
-      [disabled]="(user$ | async) === null"
-      [routerLink]="['/createBlog']"
-      matTooltip="{{ 'toolbar.createPostTooltip' | translate }}"
-      [matTooltipDisabled]="(user$ | async) !== null"
-      aria-label="Create Blog Post"
-    >
-      +
+    <button mat-button routerLink="/">
+      <mat-icon>home</mat-icon>
+      {{ 'toolbar.home' | translate }}
+    </button>
+    <button mat-button routerLink="/demo">
+      <mat-icon>code</mat-icon>
+      {{ 'toolbar.demo' | translate }}
     </button>
 
-    <!-- Divider Line -->
-    <div class="divider"></div>
+    <!-- Create Post Button -->
+    <button mat-icon-button [disabled]="(user$ | async) === null" [matTooltip]="'toolbar.createPostTooltip' | translate" routerLink="/createBlog">
+      <mat-icon>add</mat-icon>
+    </button>
 
-    <!-- Profile Avatar -->
-    <!-- @if (user$ | async) {
-    <img [src]="(profile$ | async)?.avatarURL || 'profile_avatar-placeholder.png'" alt="User avatar"
-      class="profile-avatar" (click)="goToProfile()" (keydown.enter)="goToProfile()" tabindex="1" />
-    <button (click)="logout()">Logout</button>
-    } @else {
-    <button (click)="openLoginModal()">Login</button>
-    } -->
-    <ng-container *ngIf="user$ | async as user; else loginButton">
-      <img
-        [src]="(profile$ | async)?.avatarURL || './assets/images/profile_avatar-placeholder.png'"
-        alt="User avatar"
-        class="profile-avatar"
-        (click)="goToProfile()"
-        (keydown.enter)="goToProfile()"
-        tabindex="1"
-      />
-      <button (click)="logout()">{{ 'toolbar.logout' | translate }}</button>
-    </ng-container>
-    <ng-template #loginButton>
-      <button (click)="openLoginModal()">{{ 'toolbar.login' | translate }}</button>
-    </ng-template>
-
-    <!-- Language Dropdown -->
-    <mat-menu #languageMenu="matMenu">
-      <button mat-menu-item (click)="switchLanguage('en')">🇺🇸 English</button>
-      <button mat-menu-item (click)="switchLanguage('de')">🇩🇪 Deutsch</button>
-      <button mat-menu-item (click)="switchLanguage('fr')">🇫🇷 Français</button>
-      <button mat-menu-item (click)="switchLanguage('it')">🇮🇹 Italiano</button>
-      <button mat-menu-item (click)="switchLanguage('es')">🇪🇸 Español</button>
-      <button mat-menu-item (click)="switchLanguage('de_ch')">🇨🇭 Schwiizerdütsch</button>
-      <button mat-menu-item (click)="switchLanguage('hexadecimal')">🤖 Hexadecimal</button>
-      <button mat-menu-item (click)="switchLanguage('morse')">➗ Morse Code</button>
-      <button mat-menu-item (click)="switchLanguage('en_pirate')">🏴‍☠️ Pirate English</button>
-      <button mat-menu-item (click)="switchLanguage('en_doge')">🐶 Doge English</button>
-      <button mat-menu-item (click)="switchLanguage('en_yoda')">👽 Yoda English</button>
+    <!-- Language Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="langMenu">
+      <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu #langMenu="matMenu">
+      <button *ngFor="let lang of languages" mat-menu-item (click)="switchLanguage(lang.code)">
+        <span class="flag">{{ lang.flag }}</span>
+        {{ lang.name }}
+      </button>
     </mat-menu>
-    <button mat-button [matMenuTriggerFor]="languageMenu">🌐 {{ 'toolbar.language' | translate }}</button>
-  </div>
-</nav>
 
-<!-- Login Modal -->
-<app-login-page *ngIf="showLoginModal" (close)="closeLoginModal()"> </app-login-page>
+    <!-- User Section -->
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon *ngIf="(user$ | async) === null">account_circle</mat-icon>
+      <img *ngIf="user$ | async as user" [src]="(profile$ | async)?.avatarURL || './assets/images/profile_avatar-placeholder.png'" alt="😀" class="avatar" />
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button *ngIf="(user$ | async) === null" mat-menu-item (click)="openLoginModal()">
+        <mat-icon>login</mat-icon>
+        {{ 'toolbar.login' | translate }}
+      </button>
+      <button *ngIf="user$ | async" mat-menu-item (click)="goToProfile()">
+        <mat-icon>account_circle</mat-icon>
+        {{ 'toolbar.profile' | translate }}
+      </button>
+      <button *ngIf="user$ | async" mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        {{ 'toolbar.logout' | translate }}
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<app-login-page *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-page>

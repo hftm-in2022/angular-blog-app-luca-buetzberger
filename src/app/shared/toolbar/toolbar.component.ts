@@ -20,11 +20,26 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [RouterModule, CommonModule, MatTooltipModule, MatMenuModule, LoginPageComponent, TranslateModule],
+  imports: [
+    RouterModule,
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatTooltipModule,
+    MatMenuModule,
+    LoginPageComponent,
+    TranslateModule,
+  ],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })
@@ -32,6 +47,19 @@ export class ToolbarComponent {
   user$: Observable<User | null>; // Observable for the authenticated user
   profile$: Observable<Profile | null>; // Observable for the user's profile
   showLoginModal = false; // Controls the visibility of the login modal
+  languages = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'it', name: 'Français', flag: '🇮🇹' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'de_ch', name: 'Schwiizerdütsch', flag: '🇨🇭' },
+    { code: 'hexadecimal', name: 'Hexadecimal', flag: '🤖' },
+    { code: 'morse', name: 'Morse Code', flag: '➗' },
+    { code: 'en_pirate', name: 'Pirate English', flag: '🏴‍☠️' },
+    { code: 'en_doge', name: 'Doge English', flag: '🐶' },
+    { code: 'en_yoda', name: 'Yoda English', flag: '👽' },
+  ];
 
   constructor(
     private authService: AuthenticationService,
