@@ -7,7 +7,6 @@ import { LoadingBarComponent } from './shared/loading-bar/loading-bar.component'
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   imports: [RouterOutlet, ToolbarComponent, LoadingBarComponent],
   templateUrl: './app.component.html',
