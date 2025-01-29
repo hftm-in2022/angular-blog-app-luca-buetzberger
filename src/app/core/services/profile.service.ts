@@ -46,6 +46,7 @@ export class ProfileService {
       )
       .subscribe({
         next: (profile) => {
+          // innerhalb von subscribe sollte kein .next getriggert werden
           this.profileSubject.next(profile); // Update the profile observable
           this.profileStateResolved = true; // Mark the profile state as resolved
           console.log('ProfileService: Profile state updated:', profile);
@@ -156,6 +157,7 @@ export class ProfileService {
       throw new Error('Invalid profile data: Data is null or undefined.');
     }
     return {
+      // warum dieses Mapping?
       documentID: data['documentID'] || '', // Ensure the ID is a string
       avatarURL: data['avatarURL'] || '', // Default to an empty string
       createdDate: data['createdDate']?.toDate() || new Date(0), // Ensure valid date
@@ -169,6 +171,7 @@ export class ProfileService {
 
   // Validates and sanitizes a profile before sending it to the backend.
   private validateOutgoingProfile(data: Partial<Profile>, userUID: string): Profile {
+    // warum validierung von Hand? Wartbarkeit, Fehleranfälligkeit
     if (!data.documentID || typeof data.documentID !== 'string' || data.documentID !== userUID) {
       throw new Error('Invalid profile: Document ID is required, must be a string, and must match the userUID.');
     }
@@ -205,3 +208,5 @@ export class ProfileService {
     };
   }
 }
+
+// sehr grosse Klasse mit verschiedenen Abstraktionsebenen drinn. Ich würde es in mehrere Teile sauber aufteilen, z.B. Validator, zugriffe auf Authentication etc. Lack of cohesion.

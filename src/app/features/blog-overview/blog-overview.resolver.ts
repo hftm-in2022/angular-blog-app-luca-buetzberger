@@ -10,6 +10,7 @@ import { BlogPostService } from '../../core/services/blogpost.service';
   providedIn: 'root',
 })
 export class BlogOverviewResolver implements Resolve<BlogPost[]> {
+  // bitte resolve funcitions anstelle klasse
   constructor(private blogPostService: BlogPostService) {}
 
   resolve(): Observable<BlogPost[]> {

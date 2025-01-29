@@ -7,7 +7,7 @@ import { Injectable, signal } from '@angular/core';
 })
 // Implementation using Signals
 export class LoadingBarService {
-  loading = signal(false);
+  loading = signal(false); // property ist public
 
   show(): void {
     this.loading.set(true);
@@ -17,6 +17,8 @@ export class LoadingBarService {
     this.loading.set(false);
   }
 }
+
+// auskommentierten code....
 
 // Implementation using Redux Like Pattern
 // export class LoadingBarService {

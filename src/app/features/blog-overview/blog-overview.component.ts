@@ -30,6 +30,8 @@ export class BlogOverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Listen for router events to manage loading state
+
+    // diesen state könnte man in einen StateService auslagern...
     this.routerEventsSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.loading = true; // Start loading when navigation starts
@@ -42,12 +44,14 @@ export class BlogOverviewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.routerEventsSubscription) {
+      // besser mit takeUntil(destroyed) umsetzen.
       this.routerEventsSubscription.unsubscribe(); // Clean up the subscription to avoid memory leaks
     }
   }
 
   // Load blogs from the resolver
   loadBlogs(): void {
+    // die blogs sind doch schon geladen? warum der Name loadBlogs?
     try {
       this.blogs = this.route.snapshot.data['blogs']; // Get resolved blogs
       console.log('BlogOverviewComponent: Blogs loaded successfully.', this.blogs);

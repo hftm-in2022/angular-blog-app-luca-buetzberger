@@ -25,8 +25,9 @@ export class BlogDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // anstelle ngOnInit den constructor verwenden, wenn keine @inputs vorhanden sind
     // Get the resolved blog post from the route
-    this.blog = this.route.snapshot.data['blog'];
+    this.blog = this.route.snapshot.data['blog']; // withComponentInputBinding in der config verwenden und die blog daten als input definieren
 
     // Fetch the profile of the blog author
     if (this.blog?.userUID) {
@@ -37,6 +38,7 @@ export class BlogDetailComponent implements OnInit {
   }
 
   onProfileClick(profileId: string): void {
+    // methode löschen, macht nichts
     console.log('Avatar clicked:', profileId);
     // Add logic for avatar click (e.g., open profile page)
   }

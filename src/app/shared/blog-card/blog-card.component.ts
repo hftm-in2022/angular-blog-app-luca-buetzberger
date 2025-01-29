@@ -17,6 +17,8 @@ export class BlogCardComponent {
   @Input() blog!: BlogPost; // Input to receive blog data
   @Output() blogClick = new EventEmitter<string>(); // Output to emit click events
 
+  // besser signal input / output verwenden
+
   onCardClick() {
     this.blogClick.emit(this.blog.documentID);
   }

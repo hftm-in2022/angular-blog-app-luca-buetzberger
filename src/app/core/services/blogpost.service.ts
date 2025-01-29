@@ -19,7 +19,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class BlogPostService {
   constructor(
-    private firestore: Firestore,
+    private firestore: Firestore, // besser die inject function benutzen anstelle constructor injection
     private storage: Storage,
     private authService: AuthenticationService,
   ) {}
@@ -89,7 +89,7 @@ export class BlogPostService {
   // Validates and sanitizes a blog post received from the backend.
   private validateIncomingBlogPost(data: DocumentData): BlogPost {
     return {
-      documentID: data['documentID'] || '', // Ensure the ID is a string
+      documentID: data['documentID'] || '', // Ensure the ID is a string.  // wo wird hier die validation gemacht? Name der Methode ist irreführend
       title: data['title'] || 'Untitled Blog Post', // Default title
       content: data['content'] || 'No content provided.', // Default content
       category: data['category'] || 'Uncategorized', // Default category
@@ -100,10 +100,12 @@ export class BlogPostService {
       likes: typeof data['likes'] === 'number' ? data['likes'] : 0, // Default to 0 if not a number
       geopoint: data['geopoint'] || '', // Default to empty string
     };
+    // warum musstest du dieses mapping überhaupt machen? Die Struktur ist doch die selbe?
   }
 
   // Validates and sanitizes a blog post before sending it to the backend.
   private validateOutgoingBlogPost(data: Partial<BlogPost>): BlogPost {
+    // vorgabe war die Validierung mittels einem Schema zu machen und nicht von Hand auszuprogrammieren. Wartbarkeit, Fehleranfälligkeit, Types
     if (!data.title || typeof data.title !== 'string') {
       throw new Error('Invalid blog post: Title is required and must be a string.');
     }
@@ -111,6 +113,7 @@ export class BlogPostService {
       throw new Error('Invalid blog post: Content is required and must be a string.');
     }
     return {
+      // warum dieses Mapping?
       documentID: '',
       title: data.title,
       content: data.content,

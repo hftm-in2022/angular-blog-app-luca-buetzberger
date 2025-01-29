@@ -13,8 +13,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./loading-bar.component.scss'],
 })
 export class LoadingBarComponent {
-  constructor(public loadingBarService: LoadingBarService) {}
+  constructor(public loadingBarService: LoadingBarService) {} // keine Dependencies in Dumb Components
 }
+
+// auskommentierten Code
 
 // Implementation using Redux Like Pattern
 // export class LoadingBarComponent {

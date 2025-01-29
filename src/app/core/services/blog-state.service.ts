@@ -29,3 +29,5 @@ export class BlogStateService {
     this.blogs = [];
   }
 }
+
+// keine Reaktivität in dieser state Klasse. Signals oder Observables wäre hier die bessere Wahl.

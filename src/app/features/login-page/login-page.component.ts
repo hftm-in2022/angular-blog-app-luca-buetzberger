@@ -28,12 +28,13 @@ export class LoginPageComponent {
     private router: Router,
   ) {
     this.authForm = this.fb.group({
-      email: ['', [Validators.required]], // Removed Validators.email
+      email: ['', [Validators.required]], // Removed Validators.email. // warum?
       password: ['', [Validators.required]],
     });
   }
 
   get emailFormControl() {
+    // warum nicht gleich die gesammte logik in die Funktion? get emailValid() { return !emailFormControl?.hasError('required'); }
     return this.authForm.get('email');
   }
 

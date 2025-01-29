@@ -13,5 +13,6 @@
   <!-- Blog Grid -->
   <div *ngIf="!loading && !error && blogs.length > 0" class="blog-grid">
     <app-blog-card *ngFor="let blog of blogs; trackBy: trackByBlogId" [blog]="blog" (blogClick)="onBlogClick(blog.documentID)"></app-blog-card>
+    <!-- besser @for verwenden -->
   </div>
 </div>

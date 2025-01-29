@@ -31,7 +31,7 @@ export class ToolbarComponent {
   showLoginModal = false; // Controls the visibility of the login modal
 
   constructor(
-    private authService: AuthenticationService,
+    private authService: AuthenticationService, // keine dependencies in DumbComponents
     private profileService: ProfileService,
     private router: Router,
   ) {
@@ -41,7 +41,7 @@ export class ToolbarComponent {
 
   // Opens the login modal.
   openLoginModal() {
-    console.log('ToolbarComponent: Opening login modal.');
+    console.log('ToolbarComponent: Opening login modal.'); // keine logs in produktivem code
     this.showLoginModal = true;
   }
 

@@ -29,6 +29,20 @@ export class AuthenticationService {
   user$: Observable<User | null> = this.userSubject.asObservable(); // Exposes the user state as an observable
   private authStateResolved = false; // Tracks whether Firebase has resolved the authentication state
 
+  // wäre eine Idee um aus einem observer ein Observable zu machen
+  authState$ = new Observable<User | null>((subscriber) => {
+    const unsubscribe = this.auth.onAuthStateChanged(
+      (user) => {
+        subscriber.next(user);
+      },
+      (error) => {
+        subscriber.error(error);
+      },
+    );
+
+    return () => unsubscribe();
+  });
+
   constructor(private auth: Auth) {
     // Listen to Firebase authentication state changes
     this.auth.onAuthStateChanged((user) => {
@@ -43,13 +57,17 @@ export class AuthenticationService {
   // returns A promise that resolves with the current user or null.
   async waitForAuthState(): Promise<User | null> {
     if (this.authStateResolved) {
-      console.log('AuthenticationService: Authentication state already resolved.');
-      return this.userSubject.value; // Return the current user if already resolved
+      // imperativer Ansatz. Besser deklarativer Ansatz wählen
+      console.log('AuthenticationService: Authentication state already resolved.'); // keine logs in produktivem Code
+      return this.userSubject.value; // Return the current user if already resolved.
+      // .value sollte nicht aufgerufen werden, besser observables verknüpfen
+      // return gibt gar kein Promise zurück
     }
 
     console.log('AuthenticationService: Waiting for authentication state to resolve...');
     return new Promise((resolve) => {
       const subscription = this.user$.subscribe((user) => {
+        // besser lastValueFrom verwenden um aus einem observable ein Promise zu machen…
         if (this.authStateResolved) {
           console.log('AuthenticationService: Authentication state resolved. Current user:', user);
           resolve(user);
@@ -89,7 +107,7 @@ export class AuthenticationService {
   // Login with Email and Password
   async loginWithEmail(email: string, password: string): Promise<void> {
     try {
-      console.log('AuthenticationService: Attempting email login...');
+      console.log('AuthenticationService: Attempting email login...'); // zuviele logs macht den code unleserlich
       const result = await signInWithEmailAndPassword(this.auth, email, password);
       this.userSubject.next(result.user); // Update the user observable
       console.log('AuthenticationService: Email login successful. User:', result.user);
@@ -114,11 +132,13 @@ export class AuthenticationService {
 
   // Send Password Reset Email
   async sendPasswordResetEmail(email: string): Promise<void> {
+    // warum verwendest du hier nicht einfach sendPasswordResetEmail aus dem firebase sdk? Nur für die logs?
     try {
       console.log('AuthenticationService: Attempting to send password reset email to:', email);
-      await sendPasswordResetEmail(this.auth, email);
+      await sendPasswordResetEmail(this.auth, email); // namenskonflikt macht code schwer lesbar
       console.log('AuthenticationService: Password reset email sent successfully to:', email);
     } catch (error) {
+      // das catch ist nur für den log?
       console.error('AuthenticationService: Failed to send password reset email:', error);
       throw error;
     }
@@ -137,3 +157,5 @@ export class AuthenticationService {
     }
   }
 }
+
+// sehr viel code und viele logs, welches den code schwer lesbar macht. Ist nur ein Wrapper über Firebase SDK.

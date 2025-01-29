@@ -11,6 +11,7 @@ import { BlogStateService } from '../../core/services/blog-state.service';
   providedIn: 'root',
 })
 export class BlogDetailResolver implements Resolve<BlogPost | null> {
+  // ResolveFn anstelle Klasse verwenden
   constructor(
     private blogService: BlogPostService,
     private blogStateService: BlogStateService,
@@ -19,6 +20,7 @@ export class BlogDetailResolver implements Resolve<BlogPost | null> {
   resolve(route: ActivatedRouteSnapshot): Observable<BlogPost | null> {
     const blogId = route.paramMap.get('id');
     if (!blogId) {
+      // kann nie null sein, da die route sonst nicht mached..
       console.error('No blog ID provided in route.');
       return of(null);
     }
