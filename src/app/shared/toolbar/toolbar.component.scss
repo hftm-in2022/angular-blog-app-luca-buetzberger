@@ -25,10 +25,6 @@ mat-toolbar {
     align-items: center;
     gap: 8px;
 
-    // .sidenav-button {
-    //   display: none; /* Hidden by default */
-    // }
-
     button[mat-icon-button] {
       width: 40px;
       height: 40px;
@@ -45,13 +41,14 @@ mat-toolbar {
   }
 }
 
-/* Show hamburger button and hide links on narrow viewports */
 @media (max-width: 768px) {
   .toolbar-links {
     display: none;
   }
+}
 
-  .toolbar-right .sidenav-button {
-    display: inline-flex;
+@media (min-width: 768px) {
+  .sidenav-button {
+    display: none;
   }
 }
