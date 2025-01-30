@@ -7,7 +7,7 @@
  * and authentication-related actions (login/logout/profile).
  */
 
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthenticationService } from '../../core/services/authentication.service';
 import { ProfileService } from '../../core/services/profile.service';
@@ -44,6 +44,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
+  @Output() menuToggle = new EventEmitter<void>(); // Event emitter for toggling the sidenav
+  isNarrowViewport = false; // Tracks if the viewport is narrow
   user$: Observable<User | null>; // Observable for the authenticated user
   profile$: Observable<Profile | null>; // Observable for the user's profile
   showLoginModal = false; // Controls the visibility of the login modal
@@ -69,6 +71,12 @@ export class ToolbarComponent {
   ) {
     this.user$ = this.authService.user$; // Subscribe to the user observable
     this.profile$ = this.profileService.profile$; // Subscribe to the profile observable
+    // this.updateViewport();
+  }
+
+  // Toggles the sidenav and emits the event
+  toggleSidenav() {
+    this.menuToggle.emit();
   }
 
   // Opens the login modal.

@@ -1,6 +1,7 @@
 <!-- src\app\app.component.html -->
 
-<app-toolbar></app-toolbar>
+<app-toolbar (menuToggle)="sidenav.toggle()"></app-toolbar>
+<app-sidenav #sidenav></app-sidenav>
 <app-loading-bar></app-loading-bar>
 <router-outlet></router-outlet>
-<app-footer class="footer"></app-footer>
+<app-footer></app-footer>

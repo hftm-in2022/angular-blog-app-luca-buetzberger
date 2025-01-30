@@ -1,0 +1,13 @@
+.sidenav-container {
+  position: fixed; /* Fix the sidenav to the viewport */
+  top: 0;
+  left: 0;
+  height: 100%; /* Full height */
+  width: 100%; /* Full width to cover the viewport */
+  pointer-events: none; /* Prevent blocking clicks when closed */
+}
+
+.sidenav {
+  width: 250px;
+  pointer-events: auto; /* Allow interaction when opened */
+}
