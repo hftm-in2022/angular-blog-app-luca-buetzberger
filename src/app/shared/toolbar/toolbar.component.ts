@@ -27,19 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTooltipModule,
-    MatTooltipModule,
-    MatMenuModule,
-    LoginPageComponent,
-    TranslateModule,
-  ],
+  imports: [RouterModule, CommonModule, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule, MatMenuModule, LoginPageComponent, TranslateModule],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })

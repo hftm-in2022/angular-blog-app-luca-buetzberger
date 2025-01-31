@@ -1,9 +1,66 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="over" *ngIf="isNarrowViewport" class="sidenav">
-    <p>Test Sidenav Content</p>
-  </mat-sidenav>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="over" class="sidenav" (closedStart)="close()"> </mat-sidenav>
 
+  <!-- Main Content -->
   <mat-sidenav-content>
-    <p>Test Sidenav Content</p>
+    <mat-nav-list>
+      <!-- Home Link -->
+      <a mat-list-item routerLink="/" (click)="close()">
+        <mat-icon>home</mat-icon>
+        {{ 'toolbar.home' | translate }}
+      </a>
+
+      <!-- Demo Link -->
+      <a mat-list-item routerLink="/demo" (click)="close()">
+        <mat-icon>code</mat-icon>
+        {{ 'toolbar.demo' | translate }}
+      </a>
+
+      <!-- Create Post Button -->
+      <a mat-list-item [disabled]="(user$ | async) === null" [matTooltip]="'toolbar.createPostTooltip' | translate" routerLink="/createBlog">
+        <mat-icon>add</mat-icon>
+      </a>
+
+      <!-- User Menu -->
+      <mat-list-item>
+        <button mat-icon-button [matMenuTriggerFor]="userMenu">
+          <mat-icon *ngIf="(user$ | async) === null">account_circle</mat-icon>
+          <img *ngIf="user$ | async as user" [src]="(profile$ | async)?.avatarURL || './assets/images/profile_avatar-placeholder.png'" alt="😀" class="avatar" />
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <!-- Login Option -->
+          <button *ngIf="(user$ | async) === null" mat-menu-item (click)="openLoginModal()">
+            <mat-icon>login</mat-icon>
+            {{ 'toolbar.login' | translate }}
+          </button>
+
+          <!-- Profile Option -->
+          <button *ngIf="user$ | async" mat-menu-item (click)="goToProfile()">
+            <mat-icon>account_circle</mat-icon>
+            {{ 'toolbar.profile' | translate }}
+          </button>
+
+          <!-- Logout Option -->
+          <button *ngIf="user$ | async" mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            {{ 'toolbar.logout' | translate }}
+          </button>
+        </mat-menu>
+      </mat-list-item>
+
+      <!-- Language Menu -->
+      <mat-list-item>
+        <button mat-icon-button [matMenuTriggerFor]="langMenu">
+          <mat-icon>language</mat-icon>
+        </button>
+        <mat-menu #langMenu="matMenu">
+          <button *ngFor="let lang of languages" mat-menu-item (click)="switchLanguage(lang.code)">
+            <span class="flag">{{ lang.flag }}</span>
+            {{ lang.name }}
+          </button>
+        </mat-menu>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-sidenav-content>
 </mat-sidenav-container>

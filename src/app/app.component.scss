@@ -10,7 +10,7 @@ app-toolbar {
 
 app-loading-bar {
   position: fixed;
-  top: 64px;
+  top: 56px;
   left: 0;
   width: 100%;
   z-index: 1001;
@@ -23,13 +23,13 @@ router-outlet {
 
 app-sidenav {
   position: fixed;
-  // top: 64px;
+  top: 56px;
   left: 0;
   height: calc(100vh - 64px);
   width: 250px;
   z-index: 500;
   transform: translateX(-100%); /* Initially hidden (off-screen) */
-  transition: transform 0.3s ease-in-out; /* Smooth transition for opening/closing */
+  transition: transform 0.1s ease-in-out; /* Smooth transition for opening/closing */
 }
 
 /* When the sidenav is open, slide it into view */
