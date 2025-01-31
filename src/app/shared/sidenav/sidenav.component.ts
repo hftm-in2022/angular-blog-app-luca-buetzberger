@@ -1,42 +1,30 @@
-// src\app\shared\toolbar\toolbar.component.ts
-
-/**
- * ToolbarComponent
- * This component represents the navigation toolbar for the application.
- * It includes links to different pages, a button for creating blog posts,
- * and authentication-related actions (login/logout/profile).
- */
-
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { AuthenticationService } from '../../core/services/authentication.service';
-import { ProfileService } from '../../core/services/profile.service';
-import { User } from '@angular/fire/auth';
-import { CommonModule } from '@angular/common';
-import { LoginPageComponent } from '../../features/login-page/login-page.component';
-import { Observable } from 'rxjs';
-import { Profile } from '../../core/models/profile.model';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatMenuModule } from '@angular/material/menu';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { Component, HostBinding, HostListener } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIcon } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { Router, RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { User } from '@angular/fire/auth';
+import { AuthenticationService } from '../../core/services/authentication.service';
+import { Profile } from '../../core/models/profile.model';
+import { ProfileService } from '../../core/services/profile.service';
 
 @Component({
-  selector: 'app-toolbar',
+  selector: 'app-sidenav',
   standalone: true,
-  imports: [RouterModule, CommonModule, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule, MatMenuModule, LoginPageComponent, TranslateModule],
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss'],
+  imports: [CommonModule, MatSidenavModule, RouterModule, TranslateModule, MatIcon, MatListModule, MatButtonModule, MatTooltipModule, MatMenuModule],
+  templateUrl: './sidenav.component.html',
+  styleUrl: './sidenav.component.scss',
 })
-export class ToolbarComponent {
-  @Output() menuToggle = new EventEmitter<void>(); // Event emitter for toggling the sidenav
-  isNarrowViewport = false; // Tracks if the viewport is narrow
+export class SidenavComponent {
   user$: Observable<User | null>; // Observable for the authenticated user
-  profile$: Observable<Profile | null>; // Observable for the user's profile
-  showLoginModal = false; // Controls the visibility of the login modal
+  profile$: Observable<Profile | null>;
+  showLoginModal = false;
   languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
@@ -51,6 +39,8 @@ export class ToolbarComponent {
     { code: 'en_yoda', name: 'Yoda English', flag: '👽' },
   ];
 
+  @HostBinding('class.open') isOpen = false;
+
   constructor(
     private authService: AuthenticationService,
     private profileService: ProfileService,
@@ -59,12 +49,22 @@ export class ToolbarComponent {
   ) {
     this.user$ = this.authService.user$; // Subscribe to the user observable
     this.profile$ = this.profileService.profile$; // Subscribe to the profile observable
-    // this.updateViewport();
   }
 
-  // Toggles the sidenav and emits the event
-  toggleSidenav() {
-    this.menuToggle.emit();
+  toggle() {
+    this.isOpen = !this.isOpen; // Toggle the sidenav state
+  }
+
+  close() {
+    this.isOpen = false; // Close the sidenav
+  }
+
+  // Automatically closes the sidenav when the viewport becomes wide
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    if (window.innerWidth > 768) {
+      this.close(); // Close the sidenav if the viewport is wide
+    }
   }
 
   // Opens the login modal.

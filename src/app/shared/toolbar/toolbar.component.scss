@@ -1,96 +1,54 @@
 // src\app\shared\toolbar\toolbar.component.scss
 
-/* Navigation Bar */
-nav {
+mat-toolbar {
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Ensures vertical centering */
-  background-color: #2a4a75; /* Slightly lighter matte blue */
-  padding: 10px 20px;
-  color: white;
+
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .logo {
+      height: 40px;
+    }
+
+    .title {
+      font-size: 1.2rem;
+    }
+  }
+
+  .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    button[mat-icon-button] {
+      width: 40px;
+      height: 40px;
+
+      .avatar {
+        width: 39px;
+        height: 39px;
+        position: absolute;
+        inset: 0;
+        border: 2px solid white;
+        border-radius: 50%;
+      }
+    }
+  }
 }
 
-/* Left Section: Logo and Title */
-.logo {
-  display: flex;
-  align-items: center; /* Centers the title vertically */
-  gap: 10px; /* Adds spacing between the logo and the title */
-
-  img {
-    height: 40px;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: white;
+@media (max-width: 768px) {
+  .toolbar-links {
+    display: none;
   }
 }
 
-/* Right Section: Links and Buttons */
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
-  /* Navigation Links */
-  .nav-link {
-    text-decoration: none;
-    color: white;
-    font-size: 0.9rem;
-
-    &:hover {
-      color: #4caf50;
-    }
-  }
-
-  /* Divider Line */
-  .divider {
-    height: 30px;
-    width: 1px;
-    background-color: white;
-  }
-
-  /* Create Blog Button */
-  .create-post-button {
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #45a049;
-    }
-
-    &:disabled {
-      background-color: #ccc;
-      color: #666;
-      cursor: not-allowed;
-    }
-  }
-
-  /* Profile Avatar */
-  .profile-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid #4caf50;
-  }
-
-  /* Login/Logout Button */
-  button {
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-
-    &:hover {
-      color: #4caf50;
-    }
+@media (min-width: 768px) {
+  .sidenav-button {
+    display: none;
   }
 }
