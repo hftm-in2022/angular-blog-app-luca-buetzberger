@@ -16,7 +16,6 @@ import { ProfileService } from '../../core/services/profile.service';
 
 @Component({
   selector: 'app-sidenav',
-  standalone: true,
   imports: [CommonModule, MatSidenavModule, RouterModule, TranslateModule, MatIcon, MatListModule, MatButtonModule, MatTooltipModule, MatMenuModule],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss',
