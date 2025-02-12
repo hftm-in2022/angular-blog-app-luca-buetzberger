@@ -13,7 +13,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
-  standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
