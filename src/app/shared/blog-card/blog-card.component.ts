@@ -9,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-card',
-  standalone: true,
   imports: [CommonModule, MatCardModule, MatIconModule, TranslateModule],
   templateUrl: './blog-card.component.html',
   styleUrls: ['./blog-card.component.scss'],

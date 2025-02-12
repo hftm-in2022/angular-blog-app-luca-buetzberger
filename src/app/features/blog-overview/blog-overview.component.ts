@@ -16,7 +16,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-overview',
-  standalone: true,
   imports: [CommonModule, RouterModule, BlogCardComponent, TranslateModule],
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],
