@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile-page',
+  standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],

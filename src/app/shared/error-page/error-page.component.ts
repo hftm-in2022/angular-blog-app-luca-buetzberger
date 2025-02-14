@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-error-page',
+  standalone: true,
   imports: [RouterModule, TranslateModule],
   templateUrl: './error-page.component.html',
   styleUrl: './error-page.component.scss',

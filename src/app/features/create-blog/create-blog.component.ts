@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-blog',
+  standalone: true,
   imports: [ReactiveFormsModule, CommonModule, TranslateModule],
   templateUrl: './create-blog.component.html',
   styleUrl: './create-blog.component.scss',

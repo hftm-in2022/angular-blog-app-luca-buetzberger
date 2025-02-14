@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register-modal',
+  standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss'],
