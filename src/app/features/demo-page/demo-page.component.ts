@@ -9,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [FormsModule, MatButtonModule, MatInputModule, MatSelectModule, MatCardModule, CommonModule, TranslateModule],
   templateUrl: './demo-page.component.html',
   styleUrl: './demo-page.component.scss',
