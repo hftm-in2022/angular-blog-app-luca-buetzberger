@@ -25,18 +25,44 @@ export class BlogPostService {
   ) {}
 
   // Fetches all blog posts from Firestore, ordered by the published date in descending order.
+  // getBlogs(): Observable<BlogPost[]> {
+  //   console.log('BlogPostService: Fetching all blog posts from Firestore...');
+  //   const blogsCollection = collection(this.firestore, 'blogposts');
+  //   const blogsQuery = query(blogsCollection, orderBy('publishedDate', 'desc'));
+  //   return collectionData(blogsQuery, { idField: 'documentID' }).pipe(map((blogs: DocumentData[]) => blogs.map((blog) => this.validateIncomingBlogPost(blog))));
+  // }
   getBlogs(): Observable<BlogPost[]> {
     console.log('BlogPostService: Fetching all blog posts from Firestore...');
     const blogsCollection = collection(this.firestore, 'blogposts');
     const blogsQuery = query(blogsCollection, orderBy('publishedDate', 'desc'));
-    return collectionData(blogsQuery, { idField: 'documentID' }).pipe(map((blogs: DocumentData[]) => blogs.map((blog) => this.validateIncomingBlogPost(blog))));
+    return collectionData(blogsQuery, { idField: 'documentID' }).pipe(
+      map((blogs) => {
+        if (!blogs || !Array.isArray(blogs)) {
+          throw new Error('BlogPostService: Failed to fetch blog posts.');
+        }
+        return blogs.map((blog) => this.validateIncomingBlogPost(blog as DocumentData));
+      }),
+    );
   }
 
   // Fetches a single blog post by its ID from Firestore.
+  // getBlogById(blogId: string): Observable<BlogPost> {
+  //   console.log(`BlogPostService: Fetching blog post with ID '${blogId}' from Firestore...`);
+  //   const blogDoc = doc(this.firestore, 'blogposts', blogId);
+  //   return docData(blogDoc, { idField: 'documentID' }).pipe(map((blog: DocumentData) => this.validateIncomingBlogPost(blog)));
+  // }
+
   getBlogById(blogId: string): Observable<BlogPost> {
     console.log(`BlogPostService: Fetching blog post with ID '${blogId}' from Firestore...`);
     const blogDoc = doc(this.firestore, 'blogposts', blogId);
-    return docData(blogDoc, { idField: 'documentID' }).pipe(map((blog: DocumentData) => this.validateIncomingBlogPost(blog)));
+    return docData(blogDoc, { idField: 'documentID' }).pipe(
+      map((blog) => {
+        if (!blog) {
+          throw new Error(`BlogPostService: Blog post with ID '${blogId}' not found.`);
+        }
+        return this.validateIncomingBlogPost(blog as DocumentData);
+      }),
+    );
   }
 
   // Uploads an image file to Firebase Storage and returns its download URL.
@@ -87,7 +113,24 @@ export class BlogPostService {
   }
 
   // Validates and sanitizes a blog post received from the backend.
-  private validateIncomingBlogPost(data: DocumentData): BlogPost {
+  // private validateIncomingBlogPost(data: DocumentData): BlogPost {
+  //   return {
+  //     documentID: data['documentID'] || '', // Ensure the ID is a string
+  //     title: data['title'] || 'Untitled Blog Post', // Default title
+  //     content: data['content'] || 'No content provided.', // Default content
+  //     category: data['category'] || 'Uncategorized', // Default category
+  //     publishedDate: data['publishedDate']?.toDate() || new Date(), // Ensure valid date
+  //     imageURL: data['imageURL'] || '', // Default to empty string
+  //     audioURL: data['audioURL'] || '', // Default to empty string
+  //     userUID: data['userUID'] || '', // Ensure the user UID is a string
+  //     likes: typeof data['likes'] === 'number' ? data['likes'] : 0, // Default to 0 if not a number
+  //     geopoint: data['geopoint'] || '', // Default to empty string
+  //   };
+  // }
+  private validateIncomingBlogPost(data: DocumentData | undefined): BlogPost {
+    if (!data) {
+      throw new Error('Invalid blog post data: Data is undefined.');
+    }
     return {
       documentID: data['documentID'] || '', // Ensure the ID is a string
       title: data['title'] || 'Untitled Blog Post', // Default title

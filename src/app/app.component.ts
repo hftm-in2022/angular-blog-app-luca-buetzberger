@@ -9,8 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, ToolbarComponent, LoadingBarComponent, FooterComponent, SidenavComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
